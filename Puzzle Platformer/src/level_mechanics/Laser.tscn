@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RayShape2D" id=1]
+length = 50.0
+
+[node name="Laser" type="Area2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 50, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
