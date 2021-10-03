@@ -51,3 +51,11 @@ __meta__ = {
 }
 
 [node name="Laser" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2.37839, -68.974 )
+
+[node name="Laser3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -375.789, -429.304 )
+
+[node name="Laser2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -83.2445, 44.0007 )
+cast_to = Vector2( 0, -1000 )
