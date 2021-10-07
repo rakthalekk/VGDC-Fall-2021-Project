@@ -4,7 +4,7 @@ const FLOOR_NORMAL = Vector2.UP
 const FLOOR_DETECT_DISTANCE = 20.0
 
 # The player's speed
-export var speed = Vector2(400.0, 1300.0)
+export var speed = Vector2(400.0, 700.0)
 
 # The player's velocity
 var _velocity = Vector2.ZERO
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	# Sprite scale is flipped if player is moving other direction
 	if direction.x != 0:
-		sprite.scale.x = -2 if direction.x < 0 else 2 # should be (-)1, 2 once sprite is correct size
+		sprite.scale.x = -1 if direction.x < 0 else 1 # should be (-)1, 2 once sprite is correct size
 	
 	animation_player.play(get_new_animation())
 
