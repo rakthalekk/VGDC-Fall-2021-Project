@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RayCast2D",
+"class": "Laser",
+"language": "GDScript",
+"path": "res://src/level_mechanics/Laser.gd"
+}, {
+"base": "Area2D",
+"class": "LaserBase",
+"language": "GDScript",
+"path": "res://src/level_mechanics/LaserBase.gd"
+}, {
+"base": "Area2D",
+"class": "Mirror",
+"language": "GDScript",
+"path": "res://src/level_mechanics/Mirror.gd"
+} ]
 _global_script_class_icons={
-
+"Laser": "",
+"LaserBase": "",
+"Mirror": ""
 }
 
 [application]

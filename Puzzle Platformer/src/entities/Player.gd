@@ -63,7 +63,11 @@ func calculate_move_velocity(
 
 # Returns player's current animation
 func get_new_animation():
-	if abs(_velocity.x) > 0:
+	if _velocity.y < 0:
+		return "jump"
+	elif _velocity.y > 0:
+		return "fall"
+	elif abs(_velocity.x) > 0:
 		return "move"
 	else:
 		return "idle"
