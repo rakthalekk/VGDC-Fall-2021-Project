@@ -12,7 +12,7 @@ collide_with_areas = true
 script = ExtResource( 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( 0, 0, 100, 0 )
+points = PoolVector2Array( 0, 0, 100, 0, 0, 0 )
 default_color = Color( 0.419608, 0.917647, 1, 1 )
 
 [node name="Tween" type="Tween" parent="."]

@@ -15,6 +15,8 @@ onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
 # Get references to player's components
 onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
+onready var interact_zone = $InteractZone/CollisionShape2D
+onready var interact_timer = $InteractZone/InteractTimer
 
 # Called every frame to process the player's physics
 func _physics_process(delta):
@@ -36,6 +38,10 @@ func _physics_process(delta):
 	# Sprite scale is flipped if player is moving other direction
 	if direction.x != 0:
 		sprite.scale.x = -1 if direction.x < 0 else 1 # should be (-)1, 2 once sprite is correct size
+	
+	if Input.is_action_just_pressed("interact"):
+		interact_zone.disabled = false
+		interact_timer.start()
 	
 	animation_player.play(get_new_animation())
 
@@ -71,3 +77,7 @@ func get_new_animation():
 		return "move"
 	else:
 		return "idle"
+
+
+func _on_InteractTimer_timeout():
+	interact_zone.disabled = true

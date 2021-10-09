@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/Mat2TileMap.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/tilesets/Back1TileMap.png" type="Texture" id=5]
 [ext_resource path="res://src/level_mechanics/LaserBase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/level_mechanics/Mirror.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Back1TileMap.png 0"
@@ -512,20 +513,28 @@ __meta__ = {
 
 [node name="Laser" parent="." instance=ExtResource( 3 )]
 position = Vector2( -190.032, 13.742 )
+is_casting = false
 
 [node name="Laser2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -188.25, -129.248 )
 is_casting = false
+debug = true
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 36.1585, -306.086 )
+position = Vector2( 61.5492, -305.641 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
 
 [node name="LaserBase" parent="." instance=ExtResource( 6 )]
-position = Vector2( 218.716, 15.5908 )
+position = Vector2( 228.516, 13.809 )
+orientation = "left"
 
 [node name="Mirror" parent="." instance=ExtResource( 7 )]
 position = Vector2( -44.545, -128.29 )
+
+[node name="Lever" parent="." instance=ExtResource( 8 )]
+position = Vector2( 93.99, 22.718 )
 [connection signal="power_on" from="Laser" to="LaserBase" method="_on_Laser_power_on"]
 [connection signal="enable" from="LaserBase" to="Laser2" method="_on_LaserBase_enable"]
+[connection signal="disable" from="Lever" to="Laser" method="_on_Lever_disable"]
+[connection signal="enable" from="Lever" to="Laser" method="_on_Lever_enable"]
