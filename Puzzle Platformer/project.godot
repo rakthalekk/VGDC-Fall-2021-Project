@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "RayCast2D",
-"class": "Laser",
+"class": "Beam",
 "language": "GDScript",
-"path": "res://src/level_mechanics/Laser.gd"
+"path": "res://src/level_mechanics/Beam.gd"
 }, {
 "base": "Area2D",
 "class": "LaserBase",
@@ -25,7 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/level_mechanics/Mirror.gd"
 } ]
 _global_script_class_icons={
-"Laser": "",
+"Beam": "",
 "LaserBase": "",
 "Mirror": ""
 }

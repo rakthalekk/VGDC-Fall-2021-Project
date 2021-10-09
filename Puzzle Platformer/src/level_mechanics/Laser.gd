@@ -1,77 +1,49 @@
-# This program uses code from the "Make a Laser Beam in Godot in 1 Minute video by GDQuest.
-# CC-By 4.0 - GDQuest and contributors - https://www.gdquest.com/
-class_name Laser
-extends RayCast2D
+extends Node2D
+
+const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
 signal power_on
 
-export var is_casting := true setget set_is_casting
+export(bool) var enabled = false
 export(bool) var debug = false
 
-var idx = 1
+var sub_beams = []
 
-onready var collider = $"Area2D/Collider"
-
-
-func _ready():
-	set_physics_process(is_casting)
-	$Line2D.points[1] = Vector2.ZERO
+onready var main_beam = $Beam
 
 
-func _physics_process(delta):
-	var cast_point := cast_to
-	force_raycast_update()
-	
-	if is_colliding():
-		var collider = get_collider()
-		cast_point = to_local(get_collision_point())
-		if collider is LaserBase:
-			emit_signal("power_on")
-		elif collider is Mirror:
-			if collider.orientation == "up":
-				if cast_point.x > 0:
-					$Line2D.points[1] = cast_point
-					position = get_collision_point() + Vector2(0, -5)
-					cast_to = Vector2(0, -1000)
-					idx = 2
-			else:
-				pass
-			print("hi")
-	
-	$Line2D.points[idx] = cast_point
-	if debug:
-		print(cast_point)
+func _process(delta):
+	for i in range(0, sub_beams.size()):
+		if !main_beam.reflecting && sub_beams[i].is_casting:
+			while (sub_beams.size() > 0):
+				sub_beams[i].queue_free()
+				sub_beams.remove(i)
+			break
+		if !sub_beams[i].reflecting:
+			while (sub_beams.size() > i + 1):
+				sub_beams[i + 1].queue_free()
+				sub_beams.remove(i + 1)
+			break
 
 
-func set_is_casting(cast: bool):
-	is_casting = cast
-	
-	if is_casting:
-		appear()
-	else:
-		disappear()
-	set_physics_process(is_casting)
-
-
-func appear():
-	$Tween.stop_all()
-	$Tween.interpolate_property($Line2D, "width", 0, 10.0, 0.2)
-	$Tween.start()
-
-
-func disappear():
-	$Tween.stop_all()
-	$Tween.interpolate_property($Line2D, "width", 10.0, 0, 0.1)
-	$Tween.start()
-
-
-func _on_LaserBase_enable():
-	set_is_casting(true)
+func add_beam(pos, dir):
+	var new_beam = BEAM.instance()
+	add_child(new_beam)
+	new_beam.position = pos
+	new_beam.cast_to = dir
+	sub_beams.append(new_beam)
 
 
 func _on_Lever_enable():
-	set_is_casting(true)
+	enabled = true
+	main_beam._on_Lever_enable()
 
 
 func _on_Lever_disable():
-	set_is_casting(false)
+	enabled = false
+	main_beam._on_Lever_disable()
+
+
+func _on_LaserBase_enable():
+	enabled = true
+	main_beam._on_LaserBase_enable()
