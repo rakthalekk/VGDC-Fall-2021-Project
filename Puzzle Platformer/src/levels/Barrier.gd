@@ -16,3 +16,5 @@ func _ready():
 func _on_Lever_enable():
 	enabled = true
 	_ready()
+	
+# NOTE: to add new object to deactivate barrier, instead of lever
