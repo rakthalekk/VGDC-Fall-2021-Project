@@ -26,3 +26,5 @@ func _on_Lever_area_entered(area):
 		emit_signal("enable")
 	else:
 		emit_signal("disable")
+
+
