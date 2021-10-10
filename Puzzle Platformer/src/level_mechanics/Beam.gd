@@ -24,29 +24,36 @@ func _physics_process(delta):
 	if is_colliding():
 		var collider = get_collider()
 		cast_point = to_local(get_collision_point())
+		
+		# If the beam is colliding with a base, call the base's power_on function
 		if collider is LaserBase:
 			parent.emit_signal("power_on")
+
+		# If the beam is colliding with a mirror, reflect it accordingly
 		elif collider is Mirror:
+			var dir = Vector2.ZERO
 			if collider.orientation == "up" && !reflecting:
 				if cast_point.x > 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(0, -1), Vector2(0, -1000))
+					dir = Vector2(0, -1)
 				elif cast_point.x < 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(0, 1), Vector2(0, 1000))
+					dir = Vector2(0, 1)
 				elif cast_point.y > 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(-1, 0), Vector2(-1000, 0))
+					dir = Vector2(-1, 0)
 				elif cast_point.y < 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(1, 0), Vector2(1000, 0))
+					dir = Vector2(1, 0)
 				reflecting = true
+				parent.add_beam(parent.to_local(get_collision_point()) + dir, dir * 1000)
 			elif collider.orientation == "down" && !reflecting:
 				if cast_point.x > 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(0, 1), Vector2(0, 1000))
+					dir = Vector2(0, 1)
 				elif cast_point.x < 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(0, -1), Vector2(0, -1000))
+					dir = Vector2(0, -1)
 				elif cast_point.y > 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(1, 0), Vector2(1000, 0))
+					dir = Vector2(1, 0)
 				elif cast_point.y < 0:
-					parent.add_beam(parent.to_local(get_collision_point()) + Vector2(-1, 0), Vector2(-1000, 0))
+					dir = Vector2(-1, 0)
 				reflecting = true
+				parent.add_beam(parent.to_local(get_collision_point()) + dir, dir * 1000)
 		else:
 			reflecting = false
 	line.points[1] = cast_point
