@@ -16,7 +16,6 @@ func set_full_anim():
 	charged = true
 
 
-func _on_Laser_power_gen():
-	if !charged:
-		anim_player.play("charging")
-		charging = true
+func power_gen():
+	anim_player.play("charging")
+	charging = true

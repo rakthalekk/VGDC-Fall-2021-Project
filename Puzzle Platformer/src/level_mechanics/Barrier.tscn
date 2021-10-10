@@ -147,5 +147,4 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 tile_set = SubResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -327667, 1, 2, -262131, 1, 65538, -196595, 1, 65538, -131059, 1, 262146 )
 script = ExtResource( 3 )

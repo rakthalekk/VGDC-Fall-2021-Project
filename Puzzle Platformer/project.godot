@@ -39,15 +39,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Puzzle Platformer"
-run/main_scene="res://src/levels/Main.tscn"
+run/main_scene="res://src/levels/Level1.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=480
 window/size/height=270
-window/size/test_width=1024
-window/size/test_height=600
+window/size/resizable=false
+window/size/test_width=960
+window/size/test_height=540
 
 [importer_defaults]
 

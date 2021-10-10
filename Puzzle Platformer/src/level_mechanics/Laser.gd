@@ -2,15 +2,24 @@ extends Node2D
 
 const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
-signal power_on
-signal power_gen
-
 export(bool) var enabled = false
 export(bool) var debug = false
+export(String, "up", "down", "left", "right") var orientation = "right"
 
 var sub_beams = []
 
 onready var main_beam = $Beam
+
+
+func _ready():
+	if orientation == "right":
+		main_beam.cast_to = Vector2(1000, 0)
+	elif orientation == "down":
+		main_beam.cast_to = Vector2(0, 1000)
+	elif orientation == "left":
+		main_beam.cast_to = Vector2(-1000, 0)
+	else:
+		main_beam.cast_to = Vector2(0, -1000)
 
 
 func _process(delta):

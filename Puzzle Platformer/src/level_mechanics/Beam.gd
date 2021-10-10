@@ -27,15 +27,19 @@ func _physics_process(delta):
 		
 		# If the beam is colliding with a base, call the base's power_on function
 		if collider is LaserBase:
-			parent.emit_signal("power_on")
+			if !collider.powered:
+				collider.power_on()
 		
 		# If the beam is colliding with a generator, call the generator's power_on function
 		elif collider is Generator:
-			parent.emit_signal("power_gen")
+			if !collider.charged:
+				collider.power_gen()
 		
 		# If the beam is colliding with a mirror, reflect it accordingly
 		elif collider is Mirror:
 			var dir = Vector2.ZERO
+			
+			# Redirects the beam based on what direction it came from
 			if collider.orientation == "up" && !reflecting:
 				if cast_point.x > 0:
 					dir = Vector2(0, -1)
@@ -58,6 +62,12 @@ func _physics_process(delta):
 					dir = Vector2(-1, 0)
 				reflecting = true
 				parent.add_beam(parent.to_local(get_collision_point()) + dir, dir * 1000)
+			
+			# Stops reflecting for a frame if the mirror orientation is updated, so
+			# that a new beam can be generated
+			elif reflecting && collider.update_orientation:
+				reflecting = false
+				collider.update_orientation = false
 		else:
 			reflecting = false
 	line.points[1] = cast_point

@@ -21,4 +21,6 @@ func _on_Lever_disable():
 	update_tilemap(1)
 
 
-# NOTE: to add new object to deactivate barrier, instead of lever
+func _on_LaserBase_enable():
+	enabled = false
+	update_tilemap(0)

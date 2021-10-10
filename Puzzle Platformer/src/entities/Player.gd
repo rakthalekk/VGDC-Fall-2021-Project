@@ -4,7 +4,7 @@ const FLOOR_NORMAL = Vector2.UP
 const FLOOR_DETECT_DISTANCE = 20.0
 
 # The player's speed
-export var speed = Vector2(400.0, 700.0)
+export var speed = Vector2(200.0, 700.0)
 
 # The player's velocity
 var _velocity = Vector2.ZERO

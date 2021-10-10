@@ -4,7 +4,7 @@
 [ext_resource path="res://src/entities/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.9238, 20.9308 )
+extents = Vector2( 8.25445, 20.9308 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "fall"
@@ -87,10 +87,6 @@ anims/fall = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
 anims/move = SubResource( 5 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="InteractZone" type="Area2D" parent="."]
 collision_layer = 4

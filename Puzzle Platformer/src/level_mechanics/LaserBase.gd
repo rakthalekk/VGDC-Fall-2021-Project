@@ -17,7 +17,6 @@ func _ready():
 	elif orientation == "left":
 		sprite.rotation_degrees = 270
 
-func _on_Laser_power_on():
-	if !powered:
-		emit_signal("enable")
-		powered = true
+func power_on():
+	emit_signal("enable")
+	powered = true
