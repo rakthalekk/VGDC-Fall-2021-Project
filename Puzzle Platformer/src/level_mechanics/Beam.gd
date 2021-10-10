@@ -28,7 +28,11 @@ func _physics_process(delta):
 		# If the beam is colliding with a base, call the base's power_on function
 		if collider is LaserBase:
 			parent.emit_signal("power_on")
-
+		
+		# If the beam is colliding with a generator, call the generator's power_on function
+		elif collider is Generator:
+			parent.emit_signal("power_gen")
+		
 		# If the beam is colliding with a mirror, reflect it accordingly
 		elif collider is Mirror:
 			var dir = Vector2.ZERO
@@ -74,13 +78,13 @@ func set_is_casting(cast: bool):
 
 func appear():
 	$Tween.stop_all()
-	$Tween.interpolate_property(line, "width", 0, 10.0, 0.2)
+	$Tween.interpolate_property(line, "width", 0, 5.0, 0.2)
 	$Tween.start()
 
 
 func disappear():
 	$Tween.stop_all()
-	$Tween.interpolate_property(line, "width", 10.0, 0, 0.1)
+	$Tween.interpolate_property(line, "width", 5.0, 0, 0.1)
 	$Tween.start()
 
 

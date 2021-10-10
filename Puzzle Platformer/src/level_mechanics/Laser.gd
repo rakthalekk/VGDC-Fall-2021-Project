@@ -3,6 +3,7 @@ extends Node2D
 const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
 signal power_on
+signal power_gen
 
 export(bool) var enabled = false
 export(bool) var debug = false

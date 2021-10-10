@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/Mat1.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/tilesets/Back2TileMap.png" type="Texture" id=10]
+[ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Back1TileMap.png 0"
@@ -111,14 +112,18 @@ position = Vector2( -44.545, -128.29 )
 position = Vector2( -48.5541, -272.616 )
 
 [node name="Mirror3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 167.044, -272.616 )
+position = Vector2( 136.84, -273.088 )
 orientation = "down"
 
 [node name="Lever" parent="." instance=ExtResource( 8 )]
 position = Vector2( 93.99, 22.718 )
+
+[node name="Generator" parent="." instance=ExtResource( 11 )]
+position = Vector2( 140.637, -88.2522 )
 [connection signal="power_on" from="Laser" to="LaserBase" method="_on_Laser_power_on"]
+[connection signal="power_gen" from="Laser2" to="Generator" method="_on_Laser_power_gen"]
 [connection signal="enable" from="LaserBase" to="Laser2" method="_on_LaserBase_enable"]
-[connection signal="disable" from="Lever" to="Barrier" method="_on_Lever_disable"]
 [connection signal="disable" from="Lever" to="Laser" method="_on_Lever_disable"]
-[connection signal="enable" from="Lever" to="Barrier" method="_on_Lever_enable"]
+[connection signal="disable" from="Lever" to="Barrier" method="_on_Lever_disable"]
 [connection signal="enable" from="Lever" to="Laser" method="_on_Lever_enable"]
+[connection signal="enable" from="Lever" to="Barrier" method="_on_Lever_enable"]
