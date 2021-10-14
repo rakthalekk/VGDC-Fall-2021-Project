@@ -41,3 +41,5 @@ func _on_Lever_disable():
 func _on_LaserSensor_enable():
 	update_or()
 
+
+
