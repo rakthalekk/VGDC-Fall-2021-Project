@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/level_mechanics/Generator.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "LaserBase",
 "language": "GDScript",
 "path": "res://src/level_mechanics/LaserSensor.gd"
@@ -53,8 +53,8 @@ config/icon="res://icon.png"
 window/size/width=480
 window/size/height=270
 window/size/resizable=false
-window/size/test_width=960
-window/size/test_height=540
+window/size/test_width=1200
+window/size/test_height=675
 
 [importer_defaults]
 
@@ -109,6 +109,6 @@ interact={
 
 [rendering]
 
-2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"
 quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"
+2d/snapping/use_gpu_pixel_snap=true

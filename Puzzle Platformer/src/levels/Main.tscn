@@ -74,14 +74,16 @@ on = true
 position = Vector2( 140.637, -88.2522 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -100 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="XMirror" parent="." instance=ExtResource( 12 )]
-position = Vector2( -53.0085, 13.8089 )
-[connection signal="disable" from="Lever" to="Laser" method="_on_Lever_disable"]
+position = Vector2( -98.1983, -129.315 )
+[connection signal="enable" from="LaserBase" to="Laser2" method="_on_LaserBase_enable"]
 [connection signal="disable" from="Lever" to="Barrier" method="_on_Lever_disable"]
-[connection signal="enable" from="Lever" to="Laser" method="_on_Lever_enable"]
+[connection signal="disable" from="Lever" to="Laser" method="_on_Lever_disable"]
 [connection signal="enable" from="Lever" to="Barrier" method="_on_Lever_enable"]
+[connection signal="enable" from="Lever" to="Laser" method="_on_Lever_enable"]
 [connection signal="disable" from="Lever2" to="Mirror3" method="_on_Lever_disable"]
 [connection signal="enable" from="Lever2" to="Mirror3" method="_on_Lever_enable"]

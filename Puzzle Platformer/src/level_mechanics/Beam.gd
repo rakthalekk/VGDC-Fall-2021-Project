@@ -74,16 +74,19 @@ func _physics_process(delta):
 			var dir2 = Vector2.ZERO
 			if !reflecting:
 				if cast_point.x != 0:
-					dir1 = Vector2(0, -1)
-					dir2 = Vector2(0, 5)
+					dir1 = Vector2(0, -2)
+					dir2 = Vector2(0, 2)
 				elif cast_point.y != 0:
-					dir1 = Vector2(-1, 0)
-					dir2 = Vector2(1, 0)
+					dir1 = Vector2(-2, 0)
+					dir2 = Vector2(2, 0)
 				reflecting = true
-				print(dir1)
-				print(dir2)
-				parent.add_beam(parent.to_local(get_collision_point()) + dir1, dir1 * 1000)
-				parent.add_beam(parent.to_local(get_collision_point()) + dir2, dir2 * 1000)
+				var col_pos = parent.to_local(get_collision_point())
+				#parent.add_beam(col_pos + dir1, dir1 * 1000)
+				#parent.add_beam(col_pos + dir2, dir2 * 1000)
+				# so the issue here is that only the first beam is being remembered,
+				# since the other one gets deleted since the previous one in the array
+				# is not being reflected. TODO: fix this later
+				parent.add_split_beam(col_pos + dir1, dir1 * 1000, col_pos + dir2, dir2 * 1000)
 		else:
 			reflecting = false
 	line.points[1] = cast_point

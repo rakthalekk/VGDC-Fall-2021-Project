@@ -83,7 +83,6 @@ position = Vector2( 92.4986, 9.24986 )
 offset = Vector2( 0, -60 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
-
 [connection signal="enable" from="LaserSensors/LaserSensor" to="Mirrors/Mirror2" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]

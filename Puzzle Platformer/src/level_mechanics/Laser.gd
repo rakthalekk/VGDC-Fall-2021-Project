@@ -47,6 +47,12 @@ func add_beam(pos, dir):
 	new_beam.position = pos
 	new_beam.cast_to = dir
 	sub_beams.append(new_beam)
+	return new_beam
+
+
+func add_split_beam(pos1, dir1, pos2, dir2):
+	var beam1 = add_beam(pos1, dir1)
+	add_beam(pos2, dir2)
 
 
 func _on_Lever_enable():
@@ -56,6 +62,7 @@ func _on_Lever_enable():
 
 func _on_Lever_disable():
 	enabled = false
+	main_beam.reflecting = false
 	main_beam._on_Lever_disable()
 
 
