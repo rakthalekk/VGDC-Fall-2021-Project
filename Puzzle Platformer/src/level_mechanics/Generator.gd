@@ -21,5 +21,6 @@ func power_gen():
 	anim_player.play("charging")
 	charging = true
 
+
 func play_charge_sound():
 	charge_sound.play()
