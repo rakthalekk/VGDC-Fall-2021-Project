@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Mirror",
 "language": "GDScript",
 "path": "res://src/level_mechanics/Mirror.gd"
+}, {
+"base": "Area2D",
+"class": "XMirror",
+"language": "GDScript",
+"path": "res://src/level_mechanics/XMirror.gd"
 } ]
 _global_script_class_icons={
 "Beam": "",
 "Generator": "",
 "LaserBase": "",
-"Mirror": ""
+"Mirror": "",
+"XMirror": ""
 }
 
 [application]

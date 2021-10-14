@@ -68,6 +68,22 @@ func _physics_process(delta):
 			elif reflecting && collider.update_orientation:
 				reflecting = false
 				collider.update_orientation = false
+		
+		elif collider is XMirror:
+			var dir1 = Vector2.ZERO
+			var dir2 = Vector2.ZERO
+			if !reflecting:
+				if cast_point.x != 0:
+					dir1 = Vector2(0, -1)
+					dir2 = Vector2(0, 5)
+				elif cast_point.y != 0:
+					dir1 = Vector2(-1, 0)
+					dir2 = Vector2(1, 0)
+				reflecting = true
+				print(dir1)
+				print(dir2)
+				parent.add_beam(parent.to_local(get_collision_point()) + dir1, dir1 * 1000)
+				parent.add_beam(parent.to_local(get_collision_point()) + dir2, dir2 * 1000)
 		else:
 			reflecting = false
 	line.points[1] = cast_point
