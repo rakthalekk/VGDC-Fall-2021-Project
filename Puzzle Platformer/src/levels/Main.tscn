@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/level_mechanics/Laser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/Sprite-0002.png" type="Texture" id=4]
 [ext_resource path="res://src/level_set_pieces/Background.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/level_mechanics/LaserBase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/level_mechanics/Mirror.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/PixelNumbers.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 10 )
 
 [node name="Main" type="Node2D"]
 
@@ -25,11 +29,11 @@ speed = Vector2( 300, 700 )
 [node name="Foreground" parent="." instance=ExtResource( 2 )]
 
 [node name="Label" type="Label" parent="."]
-margin_left = -629.5
-margin_top = -1199.09
-margin_right = -404.5
-margin_bottom = -1154.09
-text = "welcome to the party zone"
+margin_right = 225.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = "123456789"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,7 +71,9 @@ on = true
 
 [node name="Generator" parent="." instance=ExtResource( 11 )]
 position = Vector2( 140.637, -88.2522 )
-[connection signal="enable" from="LaserBase" to="Laser2" method="_on_LaserBase_enable"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
 [connection signal="disable" from="Lever" to="Laser" method="_on_Lever_disable"]
 [connection signal="disable" from="Lever" to="Barrier" method="_on_Lever_disable"]
 [connection signal="enable" from="Lever" to="Laser" method="_on_Lever_enable"]

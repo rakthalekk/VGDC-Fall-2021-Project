@@ -8,7 +8,7 @@
 [ext_resource path="res://src/level_mechanics/Mirror.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/level_mechanics/LaserBase.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 
@@ -41,15 +41,15 @@ orientation = "down"
 position = Vector2( -142.532, 8.40895 )
 enabled = true
 
-[node name="LaserBases" type="Node2D" parent="."]
+[node name="LaserSensors" type="Node2D" parent="."]
 
-[node name="LaserBase" parent="LaserBases" instance=ExtResource( 9 )]
+[node name="LaserSensor" parent="LaserSensors" instance=ExtResource( 9 )]
 position = Vector2( -88.1008, -55.9559 )
 
-[node name="LaserBase2" parent="LaserBases" instance=ExtResource( 9 )]
+[node name="LaserSensor2" parent="LaserSensors" instance=ExtResource( 9 )]
 position = Vector2( 76.1718, -55.6812 )
 
-[node name="LaserBase3" parent="LaserBases" instance=ExtResource( 9 )]
+[node name="LaserSensor3" parent="LaserSensors" instance=ExtResource( 9 )]
 position = Vector2( -134.099, -147.583 )
 orientation = "right"
 
@@ -82,13 +82,13 @@ position = Vector2( 92.4986, 9.24986 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -60 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
-[connection signal="enable" from="LaserBases/LaserBase" to="Mirrors/Mirror2" method="_on_LaserBase_enable"]
-[connection signal="enable" from="LaserBases/LaserBase2" to="Barriers/Barrier" method="_on_LaserBase_enable"]
-[connection signal="enable" from="LaserBases/LaserBase3" to="Barriers/Barrier2" method="_on_LaserBase_enable"]
+zoom = Vector2( 0.4, 0.4 )
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Mirrors/Mirror2" method="_on_LaserSensor_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="disable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_disable"]
 [connection signal="enable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_enable"]
-[connection signal="disable" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_disable"]
 [connection signal="disable" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_disable"]
-[connection signal="enable" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_enable"]
+[connection signal="disable" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_disable"]
 [connection signal="enable" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_enable"]
+[connection signal="enable" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_enable"]

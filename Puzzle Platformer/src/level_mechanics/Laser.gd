@@ -9,17 +9,22 @@ export(String, "up", "down", "left", "right") var orientation = "right"
 var sub_beams = []
 
 onready var main_beam = $Beam
+onready var sprite = $Sprite
 
 
 func _ready():
 	if orientation == "right":
 		main_beam.cast_to = Vector2(1000, 0)
+		sprite.rotation_degrees = 90
 	elif orientation == "down":
 		main_beam.cast_to = Vector2(0, 1000)
+		sprite.rotation_degrees = 180
 	elif orientation == "left":
 		main_beam.cast_to = Vector2(-1000, 0)
+		sprite.rotation_degrees = 270
 	else:
 		main_beam.cast_to = Vector2(0, -1000)
+		sprite.rotation_degrees = 0
 
 
 func _process(delta):

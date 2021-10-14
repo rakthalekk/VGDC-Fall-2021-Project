@@ -6,6 +6,7 @@ signal disable
 export(bool) var on = false
 
 onready var sprite = $Sprite
+onready var flip_sound = $FlipSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,7 @@ func set_sprite_orientation():
 
 
 func _on_Lever_area_entered(area):
+	flip_sound.play()
 	on = !on
 	set_sprite_orientation()
 	if on:

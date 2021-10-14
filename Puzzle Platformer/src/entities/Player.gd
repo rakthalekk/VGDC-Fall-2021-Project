@@ -17,6 +17,7 @@ onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
 onready var interact_zone = $InteractZone/CollisionShape2D
 onready var interact_timer = $InteractZone/InteractTimer
+onready var jump_sound = $JumpSound
 
 # Called every frame to process the player's physics
 func _physics_process(delta):
@@ -77,6 +78,10 @@ func get_new_animation():
 		return "move"
 	else:
 		return "idle"
+
+
+func play_jump_sound():
+	jump_sound.play()
 
 
 func _on_InteractTimer_timeout():

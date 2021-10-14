@@ -6,6 +6,7 @@ export(String, "up", "down") var orientation = "up"
 var update_orientation = false
 
 onready var sprite = $Sprite
+onready var flip_sound = $FlipSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,7 @@ func update_sprite():
 
 
 func update_or():
+	flip_sound.play()
 	if orientation == "up":
 		orientation = "down"
 	else:
@@ -36,5 +38,6 @@ func _on_Lever_disable():
 	update_or()
 
 
-func _on_LaserBase_enable():
+func _on_LaserSensor_enable():
 	update_or()
+

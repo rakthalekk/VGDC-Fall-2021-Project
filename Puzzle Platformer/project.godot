@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "LaserBase",
 "language": "GDScript",
-"path": "res://src/level_mechanics/LaserBase.gd"
+"path": "res://src/level_mechanics/LaserSensor.gd"
 }, {
 "base": "Area2D",
 "class": "Mirror",
@@ -47,8 +47,8 @@ config/icon="res://icon.png"
 window/size/width=480
 window/size/height=270
 window/size/resizable=false
-window/size/test_width=960
-window/size/test_height=540
+window/size/test_width=1200
+window/size/test_height=675
 
 [importer_defaults]
 
