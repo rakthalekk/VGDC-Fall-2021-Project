@@ -91,10 +91,10 @@ position = Vector2( 304.618, -21.7785 )
 [node name="Levers" type="Node2D" parent="."]
 
 [node name="Lever" parent="Levers" instance=ExtResource( 5 )]
-position = Vector2( 276.09, -9.55403 )
+position = Vector2( 338.792, -8.36348 )
 
 [node name="Lever2" parent="Levers" instance=ExtResource( 5 )]
-position = Vector2( 341.472, -9.96007 )
+position = Vector2( 277.976, -9.56322 )
 
 [node name="Lever3" parent="Levers" instance=ExtResource( 5 )]
 position = Vector2( 578.313, -9.77769 )
