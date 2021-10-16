@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/level_mechanics/Mirror.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/mirror.png" type="Texture" id=2]
@@ -7,6 +7,64 @@
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 7.5, -7.5 )
 b = Vector2( -7.5, 7.5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "disable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "update_enabled"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "enable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "update_enabled"
+} ]
+}
 
 [node name="Mirror" type="Area2D"]
 collision_layer = 2147483650
@@ -21,3 +79,7 @@ texture = ExtResource( 2 )
 
 [node name="FlipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/disable = SubResource( 2 )
+anims/enable = SubResource( 3 )

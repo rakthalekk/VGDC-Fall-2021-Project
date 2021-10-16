@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/level_set_pieces/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/level_mechanics/Mirror.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/level_mechanics/Laser.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=6]
 
 [node name="Level3" type="Node2D"]
 
@@ -23,17 +24,32 @@ position = Vector2( 3.99165, 108.21 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
-[node name="Mirror" parent="." instance=ExtResource( 4 )]
-position = Vector2( -151.237, 6.06066 )
-orientation = "down"
-move_to = Vector2( 100, 0 )
-moving = true
+[node name="Lasers" type="Node2D" parent="."]
 
-[node name="Laser" parent="." instance=ExtResource( 5 )]
+[node name="Laser" parent="Lasers" instance=ExtResource( 5 )]
 position = Vector2( -149, -110 )
 enabled = true
 orientation = "down"
 
-[node name="Laser2" parent="." instance=ExtResource( 5 )]
+[node name="Laser2" parent="Lasers" instance=ExtResource( 5 )]
 position = Vector2( -200.5, 6 )
 enabled = true
+
+[node name="Mirrors" type="Node2D" parent="."]
+
+[node name="Mirror" parent="Mirrors" instance=ExtResource( 4 )]
+position = Vector2( -151.237, 6.06066 )
+orientation = "down"
+enabled = false
+
+[node name="Mirror2" parent="Mirrors" instance=ExtResource( 4 )]
+position = Vector2( 1.68291, 5.755 )
+
+[node name="Levers" type="Node2D" parent="."]
+
+[node name="Lever" parent="Levers" instance=ExtResource( 6 )]
+position = Vector2( -57.9401, 118.261 )
+[connection signal="disable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_disable_2"]
+[connection signal="disable" from="Levers/Lever" to="Mirrors/Mirror2" method="_on_Lever_disable_2"]
+[connection signal="enable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_enable_2"]
+[connection signal="enable" from="Levers/Lever" to="Mirrors/Mirror2" method="_on_Lever_enable_2"]

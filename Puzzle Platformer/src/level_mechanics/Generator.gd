@@ -20,7 +20,12 @@ func set_full_anim():
 func power_gen():
 	anim_player.play("charging")
 	charging = true
+	$LevelSwitch.start()
 
 
 func play_charge_sound():
 	charge_sound.play()
+
+
+func _on_LevelSwitch_timeout():
+	Global.go_next_stage()

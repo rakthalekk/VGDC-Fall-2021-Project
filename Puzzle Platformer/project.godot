@@ -48,6 +48,10 @@ config/name="Puzzle Platformer"
 run/main_scene="res://src/levels/Level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/levels/Global.gd"
+
 [display]
 
 window/size/width=480
