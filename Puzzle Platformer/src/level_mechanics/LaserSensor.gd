@@ -1,4 +1,4 @@
-class_name LaserBase
+class_name LaserSensor
 extends Area2D
 
 signal enable

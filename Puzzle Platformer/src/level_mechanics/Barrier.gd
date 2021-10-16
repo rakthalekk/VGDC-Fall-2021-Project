@@ -3,6 +3,7 @@ extends TileMap
 
 # bool value to indicate if the barrier is enabled or disabled
 var enabled = false
+var gone = false
 
 onready var flip_sound = $FlipSound
 
@@ -25,4 +26,17 @@ func _on_Lever_disable():
 
 func _on_LaserSensor_enable():
 	enabled = false
+	gone = true
 	update_tilemap(0)
+
+
+func _on_LaserReceiver_enable():
+	if !gone:
+		enabled = false
+		update_tilemap(0)
+
+
+func _on_LaserReceiver_disable():
+	if !gone:
+		enabled = true
+		update_tilemap(1)

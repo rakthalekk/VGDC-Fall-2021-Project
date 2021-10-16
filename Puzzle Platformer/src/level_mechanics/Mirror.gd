@@ -78,7 +78,7 @@ func _on_Lever_flip():
 	update_or()
 
 
-func _on_Lever_flip_2():
+func change_enabled():
 	update_orientation = true
 	if enabled:
 		enabled = false
@@ -86,3 +86,19 @@ func _on_Lever_flip_2():
 	else:
 		enabled = true
 		anim_player.play("enable")
+
+
+func _on_Lever_flip_2():
+	change_enabled()
+
+
+func _on_LaserReciever_disable():
+	update_or()
+
+
+func _on_LaserReceiver_enable_2():
+	change_enabled()
+
+
+func _on_LaserReceiver_disable2():
+	change_enabled()

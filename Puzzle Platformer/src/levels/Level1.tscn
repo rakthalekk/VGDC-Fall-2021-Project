@@ -82,10 +82,10 @@ position = Vector2( 92.4986, 9.24986 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -60 )
 current = true
-zoom = Vector2( 0.4, 0.4 )
+zoom = Vector2( 0.425, 0.475 )
 [connection signal="enable" from="LaserSensors/LaserSensor" to="Mirrors/Mirror2" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]

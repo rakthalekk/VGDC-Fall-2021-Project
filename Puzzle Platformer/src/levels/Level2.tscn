@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tilesets/Mat1TileMap.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/Back1TileMap.png" type="Texture" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/level_mechanics/Mirror.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/level_mechanics/LaserReceiver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/level_mechanics/XMirror.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Back1TileMap.png 0"
@@ -53,84 +54,112 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Level2" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ -275.653 ]
 }
 
-[node name="Background" type="TileMap" parent="."]
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="Background" type="TileMap" parent="Tilemaps"]
 tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0 )
 
-[node name="Foreground" type="TileMap" parent="."]
+[node name="Foreground" type="TileMap" parent="Tilemaps"]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -1179634, 0, 0, -1179633, 0, 0, -1179632, 0, 0, -1179631, 0, 0, -1179630, 0, 0, -1179629, 0, 0, -1179628, 0, 0, -1179627, 0, 0, -1179626, 0, 0, -1179625, 0, 0, -1179624, 0, 0, -1179623, 0, 0, -1179622, 0, 0, -1179621, 0, 0, -1179620, 0, 0, -1179619, 0, 0, -1179618, 0, 0, -1179617, 0, 0, -1179616, 0, 0, -1179615, 0, 0, -1179614, 0, 0, -1179613, 0, 0, -1179612, 0, 0, -1179611, 0, 0, -1179610, 0, 0, -1179609, 0, 0, -1179608, 0, 0, -1179607, 0, 0, -1179606, 0, 0, -1179605, 0, 0, -1179604, 0, 0, -1114098, 0, 0, -1114068, 0, 0, -1048562, 0, 0, -1048532, 0, 0, -983026, 0, 0, -982996, 0, 0, -917490, 0, 0, -917460, 0, 0, -851954, 0, 0, -851924, 0, 0, -786418, 0, 0, -786388, 0, 0, -720882, 0, 0, -720852, 0, 0, -655346, 0, 0, -655316, 0, 0, -589810, 0, 0, -589780, 0, 0, -524274, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524244, 0, 0, -458738, 0, 0, -458708, 0, 0, -393202, 0, 0, -393172, 0, 0, -327666, 0, 0, -327636, 0, 0, -262130, 0, 0, -262100, 0, 0, -196594, 0, 0, -196564, 0, 0, -131058, 0, 0, -131028, 0, 0, -65522, 0, 0, -65492, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0 )
 
+[node name="Barriers" type="Node2D" parent="."]
+
+[node name="Barrier" parent="Barriers" instance=ExtResource( 7 )]
+position = Vector2( 173.5, -16.5 )
+tile_data = PoolIntArray( -327668, 1, 2, -262132, 1, 65538, -196596, 1, 65538, -131060, 1, 65538, -65524, 1, 65538, 12, 1, 262146 )
+
+[node name="Barrier2" parent="Barriers" instance=ExtResource( 7 )]
+position = Vector2( 188, -16.5 )
+tile_data = PoolIntArray( -327666, 0, 2, -262130, 0, 196610, -196594, 0, 196610, -131058, 0, 65538, -65522, 0, 196610, 14, 0, 262146 )
+
+[node name="Barrier3" parent="Barriers" instance=ExtResource( 7 )]
+tile_data = PoolIntArray( -262104, 1, 2, -196568, 1, 196610, -131032, 1, 196610, -65496, 1, 262146 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 304.618, -21.7785 )
+
+[node name="Levers" type="Node2D" parent="."]
+
+[node name="Lever" parent="Levers" instance=ExtResource( 5 )]
+position = Vector2( 276.09, -9.55403 )
+
+[node name="Lever2" parent="Levers" instance=ExtResource( 5 )]
+position = Vector2( 341.472, -9.96007 )
+
+[node name="Lever3" parent="Levers" instance=ExtResource( 5 )]
+position = Vector2( 578.313, -9.77769 )
+
+[node name="Mirrors" type="Node2D" parent="."]
+
+[node name="Mirror1" parent="Mirrors" instance=ExtResource( 6 )]
+position = Vector2( 473, -154 )
+
+[node name="Mirror2" parent="Mirrors" instance=ExtResource( 6 )]
+position = Vector2( 472, -229.428 )
+orientation = "down"
+enabled = false
+
+[node name="XMirror" parent="Mirrors" instance=ExtResource( 10 )]
+position = Vector2( 472.163, -192.986 )
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="Laser" parent="Lasers" instance=ExtResource( 4 )]
+position = Vector2( 257, -192.5 )
+enabled = true
+
+[node name="Laser2" parent="Lasers" instance=ExtResource( 4 )]
+position = Vector2( 263, -52.5 )
+enabled = true
+
+[node name="LaserSensors" type="Node2D" parent="."]
+
+[node name="LaserReceiver" parent="LaserSensors" instance=ExtResource( 8 )]
+position = Vector2( 265.042, -153.68 )
+orientation = "right"
+
+[node name="LaserReceiver2" parent="LaserSensors" instance=ExtResource( 8 )]
+position = Vector2( 695.842, -151.361 )
+orientation = "left"
+
+[node name="LaserReceiver3" parent="LaserSensors" instance=ExtResource( 8 )]
+position = Vector2( 696.683, -231.667 )
+orientation = "left"
+
+[node name="LaserReceiver4" parent="LaserSensors" instance=ExtResource( 8 )]
+position = Vector2( 265.042, -231.634 )
+orientation = "right"
+
+[node name="LaserSensor" parent="LaserSensors" instance=ExtResource( 11 )]
+position = Vector2( 470.394, -8.90898 )
+
+[node name="Generator" parent="." instance=ExtResource( 9 )]
+position = Vector2( 680.373, -48.2682 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 480.833, -127.986 )
 current = true
-zoom = Vector2( 0.53, 0.59 )
-
-[node name="Lever" parent="." instance=ExtResource( 5 )]
-position = Vector2( 264.508, -8.21768 )
-
-[node name="Mirror1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 473, -154 )
-
-[node name="Mirror2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 472, -229.428 )
-orientation = "down"
-
-[node name="Laser" parent="." instance=ExtResource( 4 )]
-position = Vector2( 257, -192.5 )
-enabled = true
-
-[node name="Barrier1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 173.5, -16.5 )
-tile_data = PoolIntArray( -327669, 1, 0, -327668, 1, 0, -262133, 1, 0, -262132, 1, 0, -196597, 1, 0, -196596, 1, 0, -131061, 1, 0, -131060, 1, 0, -65525, 1, 0, -65524, 1, 0, 11, 1, 0, 12, 1, 0 )
-
-[node name="Barrier2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 188, -16.5 )
-tile_data = PoolIntArray( -327667, 0, 0, -327666, 0, 0, -262131, 0, 0, -262130, 0, 0, -196595, 0, 0, -196594, 0, 0, -131059, 0, 0, -131058, 0, 0, -65523, 0, 0, -65522, 0, 0, 13, 0, 0, 14, 0, 0 )
-
-[node name="LaserSensor" parent="." instance=ExtResource( 8 )]
-position = Vector2( 698, -154.913 )
-orientation = "left"
-
-[node name="LaserSensor2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 697.397, -228.722 )
-orientation = "left"
-
-[node name="Lever2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 300, -8 )
-
-[node name="Lever3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 334.5, -7.5 )
-
-[node name="LaserSensor3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 263.897, -227.278 )
-orientation = "right"
-
-[node name="LaserSensor4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 264.691, -154.325 )
-orientation = "right"
-
-[node name="Laser2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 263, -52.5 )
-enabled = true
-
-[node name="Generator" parent="." instance=ExtResource( 9 )]
-position = Vector2( 687.5, -52.5 )
-
-[node name="XMirror" parent="." instance=ExtResource( 10 )]
-position = Vector2( 472.163, -192.986 )
-[connection signal="flip" from="Lever" to="Mirror1" method="_on_Lever_flip"]
-[connection signal="flip" from="Lever" to="Mirror2" method="_on_Lever_flip"]
-[connection signal="flip" from="Lever2" to="Mirror1" method="_on_Lever_flip"]
-[connection signal="flip" from="Lever3" to="Mirror2" method="_on_Lever_flip"]
+zoom = Vector2( 0.425, 0.475 )
+[connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror1" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror1" method="_on_Lever_flip_2"]
+[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
+[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_disable2"]
+[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_enable_2"]
+[connection signal="disable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
+[connection signal="disable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier" method="_on_LaserSensor_enable"]

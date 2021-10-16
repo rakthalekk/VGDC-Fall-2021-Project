@@ -19,8 +19,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/level_mechanics/Generator.gd"
 }, {
+"base": "LaserSensor",
+"class": "LaserReceiver",
+"language": "GDScript",
+"path": "res://src/level_mechanics/LaserReceiver.gd"
+}, {
 "base": "Area2D",
-"class": "LaserBase",
+"class": "LaserSensor",
 "language": "GDScript",
 "path": "res://src/level_mechanics/LaserSensor.gd"
 }, {
@@ -37,7 +42,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Beam": "",
 "Generator": "",
-"LaserBase": "",
+"LaserReceiver": "",
+"LaserSensor": "",
 "Mirror": "",
 "XMirror": ""
 }

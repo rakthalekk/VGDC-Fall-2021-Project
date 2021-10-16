@@ -27,13 +27,13 @@ func _physics_process(delta):
 		cast_point = to_local(get_collision_point())
 		
 		# If the beam is colliding with a base, call the base's power_on function
-		if collider is LaserBase:
-			if !collider.powered:
+		if collider is LaserSensor:
+			if !collider.powered || collider is LaserReceiver:
 				collider.power_on()
 		
 		# If the beam is colliding with a generator, call the generator's power_on function
 		elif collider is Generator:
-			if !collider.charged:
+			#if !collider.charged:
 				collider.power_gen()
 		
 		# If the beam is colliding with a mirror, reflect it accordingly
