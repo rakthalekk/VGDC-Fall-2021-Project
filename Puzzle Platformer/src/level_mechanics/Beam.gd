@@ -95,7 +95,6 @@ func _physics_process(delta):
 func delete_sub_beams():
 	while sub_beams.size() > 0:
 		sub_beams[0].delete_sub_beams()
-		#yield(get_tree().create_timer(0.05), "timeout")
 		sub_beams[0].queue_free()
 		sub_beams.remove(0)
 
@@ -132,3 +131,4 @@ func _on_Lever_enable():
 
 func _on_Lever_disable():
 	set_is_casting(false)
+

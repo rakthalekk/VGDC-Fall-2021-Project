@@ -18,10 +18,12 @@ onready var anim_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	origin = position
-#	dest = origin + move_to
 	update_enabled()
 	update_sprite()
+	if enabled:
+		anim_player.play("enable")
+	else:
+		anim_player.play("disable")
 
 
 #func _process(delta):
@@ -55,7 +57,7 @@ func update_enabled():
 		collider.disabled = true
 	else:
 		collider.disabled = false
-	update_orientation = true
+	#update_orientation = true
 
 
 func update_or():
@@ -68,25 +70,19 @@ func update_or():
 	update_sprite()
 
 
-func _on_Lever_enable():
-	update_or()
-
-
-func _on_Lever_disable():
-	update_or()
-
-
 func _on_LaserSensor_enable():
 	update_or()
 
 
-func _on_Lever_enable_2():
-	enabled = !enabled
-	#update_enabled()
-	anim_player.play("enable")
+func _on_Lever_flip():
+	update_or()
 
 
-func _on_Lever_disable_2():
-	enabled = !enabled
-	#update_enabled()
-	anim_player.play("disable")
+func _on_Lever_flip_2():
+	update_orientation = true
+	if enabled:
+		enabled = false
+		anim_player.play("disable")
+	else:
+		enabled = true
+		anim_player.play("enable")

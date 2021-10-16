@@ -49,7 +49,5 @@ position = Vector2( 1.68291, 5.755 )
 
 [node name="Lever" parent="Levers" instance=ExtResource( 6 )]
 position = Vector2( -57.9401, 118.261 )
-[connection signal="disable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_disable_2"]
-[connection signal="disable" from="Levers/Lever" to="Mirrors/Mirror2" method="_on_Lever_disable_2"]
-[connection signal="enable" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_enable_2"]
-[connection signal="enable" from="Levers/Lever" to="Mirrors/Mirror2" method="_on_Lever_enable_2"]
+[connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
+[connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]

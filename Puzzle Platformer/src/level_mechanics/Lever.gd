@@ -1,7 +1,6 @@
 extends Area2D
 
-signal enable
-signal disable
+signal flip
 
 export(bool) var on = false
 
@@ -24,7 +23,6 @@ func _on_Lever_area_entered(area):
 	flip_sound.play()
 	on = !on
 	set_sprite_orientation()
-	if on:
-		emit_signal("enable")
-	else:
-		emit_signal("disable")
+	emit_signal("flip")
+
+

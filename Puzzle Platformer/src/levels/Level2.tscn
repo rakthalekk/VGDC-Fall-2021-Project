@@ -130,11 +130,7 @@ position = Vector2( 687.5, -52.5 )
 
 [node name="XMirror" parent="." instance=ExtResource( 10 )]
 position = Vector2( 472.163, -192.986 )
-[connection signal="disable" from="Lever" to="Mirror1" method="_on_Lever_disable"]
-[connection signal="disable" from="Lever" to="Mirror2" method="_on_Lever_disable"]
-[connection signal="enable" from="Lever" to="Mirror1" method="_on_Lever_enable"]
-[connection signal="enable" from="Lever" to="Mirror2" method="_on_Lever_enable"]
-[connection signal="disable" from="Lever2" to="Mirror1" method="_on_Lever_disable"]
-[connection signal="enable" from="Lever2" to="Mirror1" method="_on_Lever_enable"]
-[connection signal="disable" from="Lever3" to="Mirror2" method="_on_Lever_disable"]
-[connection signal="enable" from="Lever3" to="Mirror2" method="_on_Lever_enable"]
+[connection signal="flip" from="Lever" to="Mirror1" method="_on_Lever_flip"]
+[connection signal="flip" from="Lever" to="Mirror2" method="_on_Lever_flip"]
+[connection signal="flip" from="Lever2" to="Mirror1" method="_on_Lever_flip"]
+[connection signal="flip" from="Lever3" to="Mirror2" method="_on_Lever_flip"]
