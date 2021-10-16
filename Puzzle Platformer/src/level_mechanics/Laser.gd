@@ -3,7 +3,6 @@ extends Node2D
 const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
 export(bool) var enabled = false
-export(bool) var debug = false
 export(String, "up", "down", "left", "right") var orientation = "right"
 
 var sub_beams = []

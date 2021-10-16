@@ -90,10 +90,6 @@ func _physics_process(delta):
 	
 	if !reflecting:
 		delete_sub_beams()
-	
-	if parent.debug:
-		print(position)
-		print(cast_point)
 
 
 func delete_sub_beams():

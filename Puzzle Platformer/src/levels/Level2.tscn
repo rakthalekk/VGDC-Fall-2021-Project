@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/tilesets/Mat1TileMap.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/Back1TileMap.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/level_mechanics/XMirror.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Back1TileMap.png 0"
@@ -83,7 +84,7 @@ position = Vector2( 264.508, -8.21768 )
 position = Vector2( 473, -154 )
 
 [node name="Mirror2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 472, -233 )
+position = Vector2( 472, -229.428 )
 orientation = "down"
 
 [node name="Laser" parent="." instance=ExtResource( 4 )]
@@ -99,11 +100,11 @@ position = Vector2( 188, -16.5 )
 tile_data = PoolIntArray( -327667, 0, 0, -327666, 0, 0, -262131, 0, 0, -262130, 0, 0, -196595, 0, 0, -196594, 0, 0, -131059, 0, 0, -131058, 0, 0, -65523, 0, 0, -65522, 0, 0, 13, 0, 0, 14, 0, 0 )
 
 [node name="LaserSensor" parent="." instance=ExtResource( 8 )]
-position = Vector2( 698, -156.5 )
+position = Vector2( 698, -154.913 )
 orientation = "left"
 
 [node name="LaserSensor2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 697, -231.5 )
+position = Vector2( 697.397, -228.722 )
 orientation = "left"
 
 [node name="Lever2" parent="." instance=ExtResource( 5 )]
@@ -113,11 +114,11 @@ position = Vector2( 300, -8 )
 position = Vector2( 334.5, -7.5 )
 
 [node name="LaserSensor3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 263.5, -224.5 )
+position = Vector2( 263.897, -227.278 )
 orientation = "right"
 
 [node name="LaserSensor4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 263.5, -157.5 )
+position = Vector2( 264.691, -154.325 )
 orientation = "right"
 
 [node name="Laser2" parent="." instance=ExtResource( 4 )]
@@ -126,6 +127,9 @@ enabled = true
 
 [node name="Generator" parent="." instance=ExtResource( 9 )]
 position = Vector2( 687.5, -52.5 )
+
+[node name="XMirror" parent="." instance=ExtResource( 10 )]
+position = Vector2( 472.163, -192.986 )
 [connection signal="disable" from="Lever" to="Mirror1" method="_on_Lever_disable"]
 [connection signal="disable" from="Lever" to="Mirror2" method="_on_Lever_disable"]
 [connection signal="enable" from="Lever" to="Mirror1" method="_on_Lever_enable"]
