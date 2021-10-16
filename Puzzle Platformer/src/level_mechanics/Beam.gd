@@ -6,6 +6,7 @@ extends RayCast2D
 export var is_casting := true setget set_is_casting
 
 var reflecting = false
+var sub_beams = []
 
 onready var line = $"Line2D"
 onready var parent = $".."
@@ -50,7 +51,7 @@ func _physics_process(delta):
 				elif cast_point.y < 0:
 					dir = Vector2(1, 0)
 				reflecting = true
-				parent.add_beam(parent.to_local(get_collision_point()) + dir, dir * 1000)
+				parent.add_beam(self, parent.to_local(get_collision_point()) + dir, dir * 1000)
 			elif collider.orientation == "down" && !reflecting:
 				if cast_point.x > 0:
 					dir = Vector2(0, 1)
@@ -61,7 +62,7 @@ func _physics_process(delta):
 				elif cast_point.y < 0:
 					dir = Vector2(-1, 0)
 				reflecting = true
-				parent.add_beam(parent.to_local(get_collision_point()) + dir, dir * 1000)
+				parent.add_beam(self, parent.to_local(get_collision_point()) + dir, dir * 1000)
 			
 			# Stops reflecting for a frame if the mirror orientation is updated, so
 			# that a new beam can be generated
@@ -81,18 +82,26 @@ func _physics_process(delta):
 					dir2 = Vector2(2, 0)
 				reflecting = true
 				var col_pos = parent.to_local(get_collision_point())
-				#parent.add_beam(col_pos + dir1, dir1 * 1000)
-				#parent.add_beam(col_pos + dir2, dir2 * 1000)
-				# so the issue here is that only the first beam is being remembered,
-				# since the other one gets deleted since the previous one in the array
-				# is not being reflected. TODO: fix this later
-				parent.add_split_beam(col_pos + dir1, dir1 * 1000, col_pos + dir2, dir2 * 1000)
+				parent.add_beam(self, col_pos + dir1, dir1 * 1000)
+				parent.add_beam(self, col_pos + dir2, dir2 * 1000)
 		else:
 			reflecting = false
 	line.points[1] = cast_point
+	
+	if !reflecting:
+		delete_sub_beams()
+	
 	if parent.debug:
 		print(position)
 		print(cast_point)
+
+
+func delete_sub_beams():
+	while sub_beams.size() > 0:
+		sub_beams[0].delete_sub_beams()
+		#yield(get_tree().create_timer(0.05), "timeout")
+		sub_beams[0].queue_free()
+		sub_beams.remove(0)
 
 
 func set_is_casting(cast: bool):
