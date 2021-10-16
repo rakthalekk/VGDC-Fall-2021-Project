@@ -11,6 +11,7 @@ func update_tilemap(id):
 	flip_sound.play()
 	for tile in get_used_cells():
 		set_cellv(tile, id)
+	update_bitmask_region()
 
 
 # if lever signal is "enabled", calls _ready function again to check
