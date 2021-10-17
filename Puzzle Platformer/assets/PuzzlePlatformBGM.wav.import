@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PuzzlePlatformBGM.wav-0f8e4e4a7ff5f2a7e3977fac0fa4e111.sample"
+
+[deps]
+
+source_file="res://assets/PuzzlePlatformBGM.wav"
+dest_files=[ "res://.import/PuzzlePlatformBGM.wav-0f8e4e4a7ff5f2a7e3977fac0fa4e111.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
