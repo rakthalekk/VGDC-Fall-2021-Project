@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Puzzle Platformer"
-run/main_scene="res://src/levels/Level1.tscn"
+run/main_scene="res://src/levels/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
