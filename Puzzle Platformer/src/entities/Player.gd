@@ -44,6 +44,9 @@ func _physics_process(delta):
 		interact_zone.disabled = false
 		interact_timer.start()
 	
+	if Input.is_action_just_pressed("reset"):
+		Global.go_next_stage(Global.current_scene)
+	
 	animation_player.play(get_new_animation())
 
 # Returns the direction vector of the player

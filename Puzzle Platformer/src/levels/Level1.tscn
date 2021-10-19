@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/Background.tscn" type="PackedScene" id=2]
@@ -10,6 +10,37 @@
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/level_set_pieces/TheDark.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/tutorialSign(Level1).png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/ResetSign.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "tutorial"
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Controls:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Reset:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 0 ]
+}
 
 [node name="Level1" type="Node2D"]
 
@@ -31,12 +62,32 @@ tile_data = PoolIntArray( -65541, 1, 2, -5, 1, 65538, 65531, 1, 196610, 131067, 
 [node name="Barrier2" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -131070, 1, 2, -65534, 1, 196610, 2, 1, 65538, 65538, 1, 196610, 131074, 1, 262146 )
 
+[node name="TutorialText" type="Node2D" parent="Barriers"]
+
+[node name="Controls" type="Sprite" parent="Barriers/TutorialText"]
+position = Vector2( -190.091, -173.82 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 11 )
+hframes = 3
+frame = 2
+
+[node name="Reset" type="Sprite" parent="Barriers/TutorialText"]
+position = Vector2( 190, -173 )
+texture = ExtResource( 12 )
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Barriers/TutorialText"]
+autoplay = "tutorial"
+anims/tutorial = SubResource( 1 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -5.94604, 24.3788 )
 
 [node name="Lasers" type="Node2D" parent="."]
 
 [node name="Laser" parent="Lasers" instance=ExtResource( 5 )]
-position = Vector2( 0, -156.827 )
+position = Vector2( 0, -154.049 )
 enabled = true
 orientation = "down"
 
@@ -91,5 +142,5 @@ zoom = Vector2( 0.4, 0.45 )
 [connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
