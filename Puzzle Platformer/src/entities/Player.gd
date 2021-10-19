@@ -4,6 +4,8 @@ extends KinematicBody2D
 const FLOOR_NORMAL = Vector2.UP
 const FLOOR_DETECT_DISTANCE = 20.0
 
+#const AMOGUS = preload("res://assets/sprites/sus.png")
+
 # The player's speed
 export var speed = Vector2(200.0, 700.0)
 
@@ -21,6 +23,14 @@ onready var sprite = $Sprite
 onready var interact_zone = $InteractZone/CollisionShape2D
 onready var interact_timer = $InteractZone/InteractTimer
 onready var jump_sound = $JumpSound
+
+
+func _ready():
+	if Global.amogus:
+		sprite.visible = false
+		sprite = $LesserSprite
+		sprite.visible = true
+
 
 # Called every frame to process the player's physics
 func _physics_process(delta):

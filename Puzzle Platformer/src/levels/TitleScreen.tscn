@@ -431,7 +431,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="TitleScreenButtons/StartGame" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="TitleScreenButtons/LevelSelect" to="." method="_on_LevelSelect_pressed"]
 [connection signal="pressed" from="TitleScreenButtons/Settings" to="." method="_on_Settings_pressed"]
