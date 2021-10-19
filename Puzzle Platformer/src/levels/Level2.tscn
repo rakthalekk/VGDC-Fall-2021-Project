@@ -67,9 +67,26 @@ position = Vector2( -1, -63.5 )
 position = Vector2( 0, -56 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
+<<<<<<< Updated upstream
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_enable" binds= [ false ]]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_disable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]
 [connection signal="flip" from="Levers/Lever" to="Lasers/Laser" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Barriers/Barrier2" method="_on_Lever_flip"]
+=======
+
+[connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror1" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror1" method="_on_Lever_flip_2"]
+[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
+[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_disable2"]
+[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_enable_2"]
+[connection signal="disable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
+[connection signal="disable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
+>>>>>>> Stashed changes
