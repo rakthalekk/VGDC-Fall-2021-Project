@@ -1,6 +1,9 @@
 extends Node
 
 var current_scene = 0
+var misfortune = false
+var amogus = false
+var shotdark = false
 
 func go_next_stage(scene = current_scene + 1):
 	if (scene > 3):

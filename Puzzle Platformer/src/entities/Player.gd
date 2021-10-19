@@ -48,10 +48,16 @@ func _physics_process(delta):
 
 # Returns the direction vector of the player
 func get_direction():
-	return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		-1 if (is_on_floor()) and Input.is_action_just_pressed("jump") else 0
-	)
+	if !Global.misfortune:
+		return Vector2(
+			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+			-1 if (is_on_floor()) and Input.is_action_pressed("jump") else 0
+		)
+	else:
+		return Vector2(
+			Input.get_action_strength("move_left") - Input.get_action_strength("move_right"),
+			-1 if (is_on_floor()) and !Input.is_action_pressed("jump") else 0
+		)
 
 # Takes the player's current velocity and applies movement speed and direction
 func calculate_move_velocity(
