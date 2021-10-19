@@ -6,7 +6,7 @@ var amogus = false
 var shotdark = false
 
 func go_next_stage(scene = current_scene + 1):
-	if (scene > 3):
+	if (scene > 5):
 		print("wow! you win! pog")
 		return
 	current_scene = scene

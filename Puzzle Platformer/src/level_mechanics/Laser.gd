@@ -36,17 +36,16 @@ func add_beam(p, pos, dir):
 	return new_beam
 
 
-func _on_Lever_enable():
-	enabled = true
-	main_beam._on_Lever_enable()
-
-
-func _on_Lever_disable():
-	enabled = false
-	main_beam.reflecting = false
-	main_beam._on_Lever_disable()
-
-
 func _on_LaserBase_enable():
 	enabled = true
 	main_beam._on_LaserBase_enable()
+
+
+func _on_Lever_flip():
+	if enabled:
+		enabled = false
+		main_beam.reflecting = false
+		main_beam._on_Lever_disable()
+	else:
+		enabled = true
+	main_beam._on_Lever_enable()

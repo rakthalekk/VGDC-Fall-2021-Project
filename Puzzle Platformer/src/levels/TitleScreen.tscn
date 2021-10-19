@@ -223,11 +223,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Lvl4" type="TextureButton" parent="LevelSelectButtons"]
+margin_left = -200.0
+margin_right = -120.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelSelectButtons/Lvl4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+margin_right = 5.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lvl5" type="TextureButton" parent="LevelSelectButtons"]
+margin_left = -40.0
+margin_right = 40.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelSelectButtons/Lvl5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+margin_right = 5.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lvl6" type="TextureButton" parent="LevelSelectButtons"]
+margin_left = 120.0
+margin_right = 200.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelSelectButtons/Lvl6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+margin_right = 5.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackLvl" type="TextureButton" parent="LevelSelectButtons"]
 margin_left = -77.0
-margin_top = 50.0
+margin_top = 100.0
 margin_right = 77.0
-margin_bottom = 103.0
+margin_bottom = 153.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
 expand = true
@@ -363,6 +438,9 @@ __meta__ = {
 [connection signal="pressed" from="LevelSelectButtons/Lvl1" to="." method="_on_Lvl1_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/Lvl2" to="." method="_on_Lvl2_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/Lvl3" to="." method="_on_Lvl3_pressed"]
+[connection signal="pressed" from="LevelSelectButtons/Lvl4" to="." method="_on_Lvl4_pressed"]
+[connection signal="pressed" from="LevelSelectButtons/Lvl5" to="." method="_on_Lvl5_pressed"]
+[connection signal="pressed" from="LevelSelectButtons/Lvl6" to="." method="_on_Lvl6_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/BackLvl" to="." method="_on_BackLvl_pressed"]
 [connection signal="toggled" from="Settings/Misfortune" to="." method="_on_Misfortune_toggled"]
 [connection signal="toggled" from="Settings/Lesser" to="." method="_on_Lesser_toggled"]

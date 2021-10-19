@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2.UP
@@ -8,6 +9,8 @@ export var speed = Vector2(200.0, 700.0)
 
 # The player's velocity
 var _velocity = Vector2.ZERO
+var coyote = true
+var storejump = false
 
 # Gravity constant
 onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
@@ -21,11 +24,16 @@ onready var jump_sound = $JumpSound
 
 # Called every frame to process the player's physics
 func _physics_process(delta):
-	# Applies gravity
-	_velocity.y += gravity * delta
-	
 	var direction = get_direction()
-
+	
+	if is_on_floor():
+		coyote = true
+		if storejump:
+			direction.y = -1
+	else:
+		coyote_time()
+		_velocity.y += gravity * delta
+	
 	# Variable used for short jumping
 	var is_jump_interrupted = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
@@ -52,15 +60,23 @@ func _physics_process(delta):
 # Returns the direction vector of the player
 func get_direction():
 	if !Global.misfortune:
-		return Vector2(
-			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-			-1 if (is_on_floor()) and Input.is_action_pressed("jump") else 0
-		)
+		var direction = Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 0)
+		if Input.is_action_just_pressed("jump"):
+			storejump = true
+			buffer_jump()
+			if coyote:
+				direction.y = -1
+		return direction
+		
 	else:
-		return Vector2(
+		var direction = Vector2(
 			Input.get_action_strength("move_left") - Input.get_action_strength("move_right"),
 			-1 if (is_on_floor()) and !Input.is_action_pressed("jump") else 0
 		)
+		if Input.is_action_just_released("jump"):
+			if coyote:
+				direction.y = -1
+		return direction
 
 # Takes the player's current velocity and applies movement speed and direction
 func calculate_move_velocity(
@@ -87,6 +103,16 @@ func get_new_animation():
 		return "move"
 	else:
 		return "idle"
+
+
+func coyote_time():
+	yield(get_tree().create_timer(.075), "timeout")
+	coyote = false
+
+
+func buffer_jump():
+	yield(get_tree().create_timer(.1), "timeout")
+	storejump = false
 
 
 func play_jump_sound():

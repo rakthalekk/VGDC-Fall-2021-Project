@@ -4,6 +4,7 @@ extends Area2D
 signal enable
 
 export(String, "up", "down", "left", "right") var orientation = "up"
+export(bool) var ignore_sound_on_startup = false
 
 var powered = false
 
@@ -41,4 +42,7 @@ func set_full_anim():
 	powered = true
 
 func play_charge_sound():
-	charge_sound.play()
+	if !ignore_sound_on_startup:
+		charge_sound.play()
+	else:
+		ignore_sound_on_startup = false

@@ -142,5 +142,5 @@ zoom = Vector2( 0.4, 0.45 )
 [connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_flip"]
