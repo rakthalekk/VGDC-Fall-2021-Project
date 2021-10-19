@@ -100,7 +100,6 @@ orientation = "down"
 position = Vector2( 104, 15.5 )
 
 [node name="Generator" parent="." instance=ExtResource( 10 )]
-<<<<<<< Updated upstream
 position = Vector2( 104, -142 )
 
 [node name="ResetIndicator" type="Area2D" parent="."]
@@ -125,22 +124,3 @@ frame = 1
 [connection signal="enable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
 [connection signal="flip" from="Levers/Lever" to="Barriers/Barrier4" method="_on_Lever_flip"]
 [connection signal="body_entered" from="ResetIndicator" to="ResetIndicator" method="_on_ResetIndicator_body_entered"]
-=======
-position = Vector2( 135.082, -96.4484 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, 8 )
-current = true
-zoom = Vector2( 0.4, 0.45 )
-
-[connection signal="flip" from="Levers/Lever" to="Barriers/Barrier" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever" to="Barriers/Barrier3" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
-[connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier4" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
-[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
-[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
-[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier5" method="_on_LaserReceiver_enable"]
-[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier5" method="_on_LaserReceiver_disable"]
-[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier6" method="_on_LaserSensor_disable"]
->>>>>>> Stashed changes
