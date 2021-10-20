@@ -16,6 +16,8 @@ func _ready():
 	set_is_casting(parent.enabled)
 	set_physics_process(is_casting)
 	line.points[1] = Vector2.ZERO
+	if parent.deadly:
+		line.default_color = Color.red
 
 
 func _physics_process(delta):
@@ -33,11 +35,15 @@ func _physics_process(delta):
 		
 		# If the beam is colliding with a generator, call the generator's power_on function
 		elif collider is Generator:
-			#if !collider.charged:
-				collider.power_gen()
+			collider.power_gen()
 		
+		# If the beam is colliding with the player
+		elif collider is Player:
+			if parent.deadly:
+				collider.kill()
+			
 		# If the beam is colliding with a mirror, reflect it accordingly
-		elif collider is Mirror:
+		if collider is Mirror:
 			var dir = Vector2.ZERO
 			
 			# Redirects the beam based on what direction it came from

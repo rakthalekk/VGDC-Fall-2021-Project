@@ -44,6 +44,18 @@ func _on_Lvl3_pressed():
 	Global.go_next_stage(3)
 
 
+func _on_Lvl4_pressed():
+	Global.go_next_stage(4)
+
+
+func _on_Lvl5_pressed():
+	Global.go_next_stage(5)
+
+
+func _on_Lvl6_pressed():
+	Global.go_next_stage(6)
+
+
 func _on_BackSettings_pressed():
 	settings.visible = false
 	titlescrn.visible = true
@@ -68,15 +80,3 @@ func _on_Shot_toggled(button_pressed):
 		Global.shotdark = true
 	else:
 		Global.shotdark = false
-
-
-func _on_Lvl4_pressed():
-	Global.go_next_stage(4)
-
-
-func _on_Lvl5_pressed():
-	Global.go_next_stage(5)
-
-
-func _on_Lvl6_pressed():
-	pass # Replace with function body.

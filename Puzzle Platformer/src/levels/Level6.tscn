@@ -120,6 +120,7 @@ orientation = "down"
 position = Vector2( 340.088, -239.028 )
 enabled = true
 orientation = "down"
+deadly = true
 
 [node name="LaserSensors" type="Node2D" parent="."]
 

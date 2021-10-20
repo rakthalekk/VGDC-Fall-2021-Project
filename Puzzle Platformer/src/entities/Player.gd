@@ -13,6 +13,7 @@ export var speed = Vector2(200.0, 700.0)
 var _velocity = Vector2.ZERO
 var coyote = true
 var storejump = false
+var dead = false
 
 # Gravity constant
 onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
@@ -30,6 +31,8 @@ func _ready():
 		sprite.visible = false
 		sprite = $LesserSprite
 		sprite.visible = true
+		$CollisionShape2D.disabled = true
+		$LesserCollider.disabled = false
 
 
 # Called every frame to process the player's physics
@@ -47,6 +50,9 @@ func _physics_process(delta):
 	# Variable used for short jumping
 	var is_jump_interrupted = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+	
+	if dead:
+		_velocity = Vector2.ZERO
 	
 	# Vertical snap vector for use in move_and_slide_with_snap
 	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
@@ -129,5 +135,15 @@ func play_jump_sound():
 	jump_sound.play()
 
 
+func kill():
+	if !dead:
+		$KillTimer.start()
+		dead = true
+
+
 func _on_InteractTimer_timeout():
 	interact_zone.disabled = true
+
+
+func _on_KillTimer_timeout():
+	Global.go_next_stage(Global.current_scene)

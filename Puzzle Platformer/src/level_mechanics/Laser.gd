@@ -4,8 +4,7 @@ const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
 export(bool) var enabled = false
 export(String, "up", "down", "left", "right") var orientation = "right"
-
-var sub_beams = []
+export(bool) var deadly = false
 
 onready var main_beam = $Beam
 onready var sprite = $Sprite
@@ -31,7 +30,6 @@ func add_beam(p, pos, dir):
 	add_child(new_beam)
 	new_beam.position = pos
 	new_beam.cast_to = dir
-	sub_beams.append(new_beam)
 	p.sub_beams.append(new_beam)
 	return new_beam
 
