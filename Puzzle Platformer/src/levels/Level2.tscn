@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/level_set_pieces/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/entities/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/level_mechanics/Laser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/level_set_pieces/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/level_mechanics/LaserReceiver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=9]
@@ -68,6 +69,7 @@ position = Vector2( 0, -56 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
 
+[node name="UI" parent="." instance=ExtResource( 6 )]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_enable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/level_mechanics/LaserReceiver.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/level_set_pieces/TheDark.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/level_mechanics/XMirror.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/level_set_pieces/UI.tscn" type="PackedScene" id=13]
 
 [node name="Level5" type="Node2D"]
 __meta__ = {
@@ -108,6 +109,8 @@ position = Vector2( 464, -120 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
 
+[node name="UI" parent="." instance=ExtResource( 13 )]
+position = Vector2( 464, -64 )
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror1" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror1" method="_on_Lever_flip_2"]
@@ -119,5 +122,5 @@ zoom = Vector2( 0.4, 0.45 )
 [connection signal="enable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
-[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier" method="_on_LaserSensor_enable" binds= [ false ]]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]

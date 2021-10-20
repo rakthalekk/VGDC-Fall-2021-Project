@@ -7,7 +7,15 @@ var shotdark = false
 
 func go_next_stage(scene = current_scene + 1):
 	if (scene > 6):
-		print("wow! you win! pog")
+		get_tree().change_scene("res://src/levels/Win.tscn")
 		return
 	current_scene = scene
 	get_tree().change_scene("res://src/levels/Level"+str(current_scene)+".tscn")
+
+
+func return_to_title():
+	get_tree().change_scene("res://src/levels/TitleScreen.tscn")
+	current_scene = 0
+	misfortune = false
+	amogus = false
+	shotdark = false

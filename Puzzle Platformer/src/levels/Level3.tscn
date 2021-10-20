@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/level_set_pieces/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/Foreground.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/level_mechanics/Generator.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/ResetSign.png" type="Texture" id=11]
 [ext_resource path="res://src/level_set_pieces/TheDark.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/level_set_pieces/UI.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 161, 16 )
@@ -117,6 +118,7 @@ texture = ExtResource( 11 )
 hframes = 2
 frame = 1
 
+[node name="UI" parent="." instance=ExtResource( 13 )]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
