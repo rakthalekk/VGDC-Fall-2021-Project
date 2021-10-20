@@ -127,14 +127,10 @@ func disappear():
 	$Tween.start()
 
 
-func _on_LaserBase_enable():
+func enable():
 	set_is_casting(true)
 
 
-func _on_Lever_enable():
-	set_is_casting(true)
-
-
-func _on_Lever_disable():
+func disable():
 	set_is_casting(false)
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/level_mechanics/Beam.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_mechanics/Laser.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/laserGenerator.png" type="Texture" id=3]
+[ext_resource path="res://assets/SFX/laserOn.wav" type="AudioStream" id=4]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource( 2 )
@@ -11,3 +12,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+
+[node name="EnableSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.137

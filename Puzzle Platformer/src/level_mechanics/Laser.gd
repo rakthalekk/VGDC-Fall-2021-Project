@@ -8,6 +8,7 @@ export(bool) var deadly = false
 
 onready var main_beam = $Beam
 onready var sprite = $Sprite
+onready var enable_sound = $EnableSound
 
 
 func _ready():
@@ -36,14 +37,16 @@ func add_beam(p, pos, dir):
 
 func _on_LaserBase_enable():
 	enabled = true
-	main_beam._on_LaserBase_enable()
+	enable_sound.play()
+	main_beam.enable()
 
 
 func _on_Lever_flip():
 	if enabled:
 		enabled = false
 		main_beam.reflecting = false
-		main_beam._on_Lever_disable()
+		main_beam.disable()
 	else:
 		enabled = true
-	main_beam._on_Lever_enable()
+		enable_sound.play()
+		main_beam.enable()

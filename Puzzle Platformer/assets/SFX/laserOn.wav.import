@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laserOn.wav-5da9fedd029d5856d6a1c9431624e30c.sample"
+
+[deps]
+
+source_file="res://assets/SFX/laserOn.wav"
+dest_files=[ "res://.import/laserOn.wav-5da9fedd029d5856d6a1c9431624e30c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

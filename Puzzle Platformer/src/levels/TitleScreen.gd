@@ -56,6 +56,10 @@ func _on_Lvl6_pressed():
 	Global.go_next_stage(6)
 
 
+func _on_Lvl7_pressed():
+	Global.go_next_stage(7)
+
+
 func _on_BackSettings_pressed():
 	settings.visible = false
 	titlescrn.visible = true
@@ -80,3 +84,4 @@ func _on_Shot_toggled(button_pressed):
 		Global.shotdark = true
 	else:
 		Global.shotdark = false
+

@@ -34,11 +34,6 @@ position = Vector2( -120, 55 )
 [node name="Roomba3" parent="Roombas" instance=ExtResource( 4 )]
 position = Vector2( 120, 55 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -60 )
-current = true
-zoom = Vector2( 0.4, 0.45 )
-
 [node name="Burger" type="Sprite" parent="."]
 position = Vector2( 1.8409, -51.7503 )
 scale = Vector2( 3, 3 )
@@ -58,3 +53,8 @@ __meta__ = {
 }
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -56 )
+current = true
+zoom = Vector2( 0.4, 0.45 )

@@ -146,9 +146,9 @@ align = 1
 visible = false
 
 [node name="Lvl1" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = -200.0
+margin_left = -280.0
 margin_top = -100.0
-margin_right = -120.0
+margin_right = -200.0
 margin_bottom = -20.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
@@ -172,9 +172,9 @@ __meta__ = {
 }
 
 [node name="Lvl2" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = -40.0
+margin_left = -120.0
 margin_top = -100.0
-margin_right = 40.0
+margin_right = -40.0
 margin_bottom = -20.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
@@ -198,9 +198,9 @@ __meta__ = {
 }
 
 [node name="Lvl3" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = 120.0
+margin_left = 40.0
 margin_top = -100.0
-margin_right = 200.0
+margin_right = 120.0
 margin_bottom = -20.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
@@ -224,9 +224,10 @@ __meta__ = {
 }
 
 [node name="Lvl4" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = -200.0
-margin_right = -120.0
-margin_bottom = 80.0
+margin_left = 200.0
+margin_top = -100.0
+margin_right = 280.0
+margin_bottom = -20.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
 expand = true
@@ -249,8 +250,8 @@ __meta__ = {
 }
 
 [node name="Lvl5" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = -40.0
-margin_right = 40.0
+margin_left = -200.0
+margin_right = -120.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
@@ -274,8 +275,8 @@ __meta__ = {
 }
 
 [node name="Lvl6" type="TextureButton" parent="LevelSelectButtons"]
-margin_left = 120.0
-margin_right = 200.0
+margin_left = -40.0
+margin_right = 40.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 5 )
@@ -292,6 +293,31 @@ margin_right = 5.0
 margin_bottom = 10.0
 custom_fonts/font = SubResource( 2 )
 text = "6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lvl7" type="TextureButton" parent="LevelSelectButtons"]
+margin_left = 120.0
+margin_right = 200.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelSelectButtons/Lvl7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+margin_right = 5.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 2 )
+text = "7"
 align = 1
 valign = 1
 __meta__ = {
@@ -441,6 +467,7 @@ __meta__ = {
 [connection signal="pressed" from="LevelSelectButtons/Lvl4" to="." method="_on_Lvl4_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/Lvl5" to="." method="_on_Lvl5_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/Lvl6" to="." method="_on_Lvl6_pressed"]
+[connection signal="pressed" from="LevelSelectButtons/Lvl7" to="." method="_on_Lvl7_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/BackLvl" to="." method="_on_BackLvl_pressed"]
 [connection signal="toggled" from="Settings/Misfortune" to="." method="_on_Misfortune_toggled"]
 [connection signal="toggled" from="Settings/Lesser" to="." method="_on_Lesser_toggled"]

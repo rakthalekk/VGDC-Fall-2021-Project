@@ -6,7 +6,7 @@ var amogus = false
 var shotdark = false
 
 func go_next_stage(scene = current_scene + 1):
-	if (scene > 6):
+	if (scene > 7):
 		get_tree().change_scene("res://src/levels/Win.tscn")
 		return
 	current_scene = scene

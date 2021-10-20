@@ -24,6 +24,7 @@ onready var sprite = $Sprite
 onready var interact_zone = $InteractZone/CollisionShape2D
 onready var interact_timer = $InteractZone/InteractTimer
 onready var jump_sound = $JumpSound
+onready var death_sound = $DeathSound
 
 
 func _ready():
@@ -61,17 +62,18 @@ func _physics_process(delta):
 	)
 	
 	# Sprite scale is flipped if player is moving other direction
-	if direction.x != 0:
-		sprite.scale.x = -1 if direction.x < 0 else 1 # should be (-)1, 2 once sprite is correct size
+	if direction.x != 0 && !dead:
+		sprite.scale.x = -1 if direction.x < 0 else 1
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_zone.disabled = false
 		interact_timer.start()
 	
 	if Input.is_action_just_pressed("reset"):
-		Global.go_next_stage(Global.current_scene)
+		reset_level()
 	
-	animation_player.play(get_new_animation())
+	if !dead:
+		animation_player.play(get_new_animation())
 
 # Returns the direction vector of the player
 func get_direction():
@@ -137,7 +139,8 @@ func play_jump_sound():
 
 func kill():
 	if !dead:
-		$KillTimer.start()
+		animation_player.play("dead")
+		death_sound.play()
 		dead = true
 
 
@@ -145,5 +148,5 @@ func _on_InteractTimer_timeout():
 	interact_zone.disabled = true
 
 
-func _on_KillTimer_timeout():
+func reset_level():
 	Global.go_next_stage(Global.current_scene)
