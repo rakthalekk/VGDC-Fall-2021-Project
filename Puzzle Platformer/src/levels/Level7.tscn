@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/level_mechanics/Laser.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/level_set_pieces/TheDark.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/level_mechanics/Barrier.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/level_mechanics/LaserReceiver.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/level_set_pieces/UI.tscn" type="PackedScene" id=12]
 
 [node name="Level7" type="Node2D"]
 
@@ -105,6 +106,8 @@ position = Vector2( 184.084, -157.706 )
 offset = Vector2( 0, -56 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
+
+[node name="UI" parent="." instance=ExtResource( 12 )]
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
 [connection signal="flip" from="Levers/Lever2" to="Barriers/Barrier" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
