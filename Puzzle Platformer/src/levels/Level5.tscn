@@ -107,6 +107,7 @@ position = Vector2( 645.373, -48.2682 )
 position = Vector2( 464, -120 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
+
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror1" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror1" method="_on_Lever_flip_2"]
@@ -118,5 +119,5 @@ zoom = Vector2( 0.4, 0.45 )
 [connection signal="enable" from="LaserSensors/LaserReceiver3" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver4" to="Barriers/Barrier3" method="_on_LaserReceiver_enable"]
-[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier" method="_on_LaserSensor_enable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
+[connection signal="enable" from="LaserSensors/LaserSensor" to="Barriers/Barrier" method="_on_LaserSensor_enable" binds= [ false ]]

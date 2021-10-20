@@ -99,6 +99,7 @@ position = Vector2( 135.082, -96.4484 )
 position = Vector2( 0, 8 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
+
 [connection signal="flip" from="Levers/Lever" to="Barriers/Barrier" method="_on_Lever_flip" binds= [ false ]]
 [connection signal="flip" from="Levers/Lever" to="Barriers/Barrier3" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
