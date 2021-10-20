@@ -10,36 +10,37 @@
 [ext_resource path="res://src/level_mechanics/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/level_mechanics/LaserSensor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/level_set_pieces/TheDark.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/sprites/tutorialSign(Level1).png" type="Texture" id=11]
-[ext_resource path="res://assets/sprites/ResetSign.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/tutorialSIgn2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/tutorialSign1.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
-resource_name = "tutorial"
-length = 2.4
+resource_name = "tutorial1"
+length = 4.8
 loop = true
+step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Controls:frame")
+tracks/0/path = NodePath("Controls1:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 2.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 1 ]
+"values": [ 0, 1, 0, 1, 0, 1, 2, 3, 4, 5, 4, 5, 4, 5, 6, 7, 8, 9, 8, 9, 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Reset:frame")
+tracks/1/path = NodePath("Controls2:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 2.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 1, 0 ]
+"values": [ 0, 1, 0, 1, 0, 1, 2, 3, 4, 5, 4, 5, 4, 5, 6, 7, 8, 9, 8, 9, 8, 9, 10, 11 ]
 }
 
 [node name="Level1" type="Node2D"]
@@ -64,22 +65,22 @@ tile_data = PoolIntArray( -131070, 1, 2, -65534, 1, 196610, 2, 1, 65538, 65538, 
 
 [node name="TutorialText" type="Node2D" parent="Barriers"]
 
-[node name="Controls" type="Sprite" parent="Barriers/TutorialText"]
+[node name="Controls1" type="Sprite" parent="Barriers/TutorialText"]
 position = Vector2( -190.091, -173.82 )
 scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 11 )
-hframes = 3
-frame = 2
-
-[node name="Reset" type="Sprite" parent="Barriers/TutorialText"]
-position = Vector2( 190, -173 )
 texture = ExtResource( 12 )
-hframes = 2
-frame = 1
+hframes = 12
+frame = 4
+
+[node name="Controls2" type="Sprite" parent="Barriers/TutorialText"]
+position = Vector2( 190, -173 )
+texture = ExtResource( 11 )
+hframes = 12
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Barriers/TutorialText"]
-autoplay = "tutorial"
-anims/tutorial = SubResource( 1 )
+autoplay = "tutorial1"
+anims/tutorial1 = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -5.94604, 24.3788 )
@@ -138,10 +139,9 @@ position = Vector2( 0, 4 )
 offset = Vector2( 0, -60 )
 current = true
 zoom = Vector2( 0.4, 0.45 )
-
 [connection signal="enable" from="LaserSensors/LaserSensor" to="Mirrors/Mirror2" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor2" to="Barriers/Barrier" method="_on_LaserSensor_enable"]
 [connection signal="enable" from="LaserSensors/LaserSensor3" to="Barriers/Barrier2" method="_on_LaserSensor_enable"]
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip"]
-[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror3" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip"]
