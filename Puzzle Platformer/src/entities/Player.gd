@@ -124,13 +124,13 @@ func get_new_animation():
 
 
 func coyote_time():
-	yield(get_tree().create_timer(.075), "timeout")
-	coyote = false
+	if $CoyoteTimer.time_left == 0:
+		$CoyoteTimer.start()
 
 
 func buffer_jump():
-	yield(get_tree().create_timer(.1), "timeout")
-	storejump = false
+	if $BufferTimer.time_left == 0:
+		$BufferTimer.start()
 
 
 func play_jump_sound():
@@ -150,3 +150,11 @@ func _on_InteractTimer_timeout():
 
 func reset_level():
 	Global.go_next_stage(Global.current_scene)
+
+
+func _on_CoyoteTimer_timeout():
+	coyote = false
+
+
+func _on_BufferTimer_timeout():
+	storejump = false

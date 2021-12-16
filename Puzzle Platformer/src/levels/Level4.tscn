@@ -47,6 +47,9 @@ tile_data = PoolIntArray( 7, 0, 131072, 8, 0, 131073, 9, 0, 131073, 10, 0, 13107
 [node name="Barrier6" parent="Barriers" instance=ExtResource( 11 )]
 tile_data = PoolIntArray( 327687, 0, 131072, 327688, 0, 131073, 327689, 0, 131076 )
 
+[node name="Barrier7" parent="Barriers" instance=ExtResource( 11 )]
+tile_data = PoolIntArray( -458750, 0, 2, -393214, 0, 65538, -327678, 0, 196610, -262142, 0, 196610, -196606, 0, 196610, -131070, 0, 196610, -65534, 0, 262146 )
+
 [node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( -166.685, -23.5376 )
 
@@ -55,6 +58,7 @@ position = Vector2( -166.685, -23.5376 )
 [node name="Laser" parent="Lasers" instance=ExtResource( 8 )]
 position = Vector2( -105.032, 71.1682 )
 enabled = true
+deadly = true
 
 [node name="Mirrors" type="Node2D" parent="."]
 
@@ -72,13 +76,13 @@ position = Vector2( 136.141, 70.984 )
 [node name="Levers" type="Node2D" parent="."]
 
 [node name="Lever" parent="Levers" instance=ExtResource( 4 )]
-position = Vector2( 52.7738, -8.34482 )
+position = Vector2( 56, -8 )
 
 [node name="Lever2" parent="Levers" instance=ExtResource( 4 )]
-position = Vector2( 88.4652, 118.13 )
+position = Vector2( 88.4652, 120.13 )
 
 [node name="Lever3" parent="Levers" instance=ExtResource( 4 )]
-position = Vector2( 90.5841, -8.47569 )
+position = Vector2( 88.5841, -7.47569 )
 
 [node name="LaserSensors" type="Node2D" parent="."]
 
@@ -103,11 +107,13 @@ zoom = Vector2( 0.4, 0.45 )
 
 [node name="UI" parent="." instance=ExtResource( 13 )]
 position = Vector2( 0, 64 )
-[connection signal="flip" from="Levers/Lever" to="Barriers/Barrier3" method="_on_Lever_flip"]
+
 [connection signal="flip" from="Levers/Lever" to="Barriers/Barrier" method="_on_Lever_flip" binds= [ false ]]
+[connection signal="flip" from="Levers/Lever" to="Barriers/Barrier3" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
-[connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
 [connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier4" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier7" method="_on_Lever_flip"]
+[connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier5" method="_on_LaserReceiver_enable"]

@@ -4,6 +4,7 @@ extends LaserSensor
 signal disable
 
 var counter = 0
+var dis = false
 
 onready var timer = $Timer
 
@@ -13,8 +14,15 @@ func power_on():
 		anim_player.play("charging")
 
 
-func _on_Timer_timeout():
-	if powered:
-		powered = false
+func set_empty_anim():
+	anim_player.play("empty")
+	if dis:
 		emit_signal("disable")
-		anim_player.play("empty")
+		dis = false
+
+
+func _on_Timer_timeout():
+	anim_player.play("emptying")
+	if powered:
+		dis = true
+	powered = false

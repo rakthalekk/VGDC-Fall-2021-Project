@@ -113,7 +113,7 @@ position = Vector2( 572.11, -7.94595 )
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="Mirrors" instance=ExtResource( 6 )]
-position = Vector2( 648.035, -54.5623 )
+position = Vector2( 649, -54 )
 
 [node name="Mirror2" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 607.245, -53.5029 )
@@ -162,6 +162,7 @@ zoom = Vector2( 0.4, 0.45 )
 
 [node name="UI" parent="." instance=ExtResource( 13 )]
 position = Vector2( 464, -64 )
+
 [connection signal="flip" from="Levers/Lever" to="Barriers/Barrier" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever2" to="Mirrors/Mirror" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier4" method="_on_Lever_flip"]

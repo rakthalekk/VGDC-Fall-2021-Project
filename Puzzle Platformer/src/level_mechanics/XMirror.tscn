@@ -3,8 +3,8 @@
 [ext_resource path="res://assets/sprites/mirror.png" type="Texture" id=1]
 [ext_resource path="res://src/level_mechanics/XMirror.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.32394, 1.47153 )
+[sub_resource type="ConcavePolygonShape2D" id=1]
+segments = PoolVector2Array( -8, -8, 8, 8, -8, 8, 8, -8 )
 
 [node name="XMirror" type="Area2D"]
 collision_layer = 2

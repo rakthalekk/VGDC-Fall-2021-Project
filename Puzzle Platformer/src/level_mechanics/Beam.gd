@@ -74,6 +74,9 @@ func _physics_process(delta):
 			# that a new beam can be generated
 			elif reflecting && collider.update_orientation:
 				reflecting = false
+
+				# Waits 0.01 seconds in case mirror is reflecting multiple lasers
+				yield(get_tree().create_timer(.01), "timeout")
 				collider.update_orientation = false
 		
 		elif collider is XMirror:
@@ -100,6 +103,7 @@ func _physics_process(delta):
 
 func delete_sub_beams():
 	while sub_beams.size() > 0:
+		sub_beams[0].reflecting = true
 		sub_beams[0].delete_sub_beams()
 		sub_beams[0].queue_free()
 		sub_beams.remove(0)
