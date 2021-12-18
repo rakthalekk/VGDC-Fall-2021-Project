@@ -58,13 +58,13 @@ func _on_Lever_flip():
 
 
 func change_enabled():
-	update_orientation = true
 	if enabled:
 		enabled = false
 		anim_player.play("disable")
 	else:
 		enabled = true
 		anim_player.play("enable")
+	update_orientation = true
 
 
 func _on_Lever_flip_2():

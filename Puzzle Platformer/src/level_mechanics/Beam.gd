@@ -72,7 +72,7 @@ func _physics_process(delta):
 			
 			# Stops reflecting for a frame if the mirror orientation is updated, so
 			# that a new beam can be generated
-			elif reflecting && collider.update_orientation:
+			if reflecting && collider.update_orientation:
 				reflecting = false
 
 				# Waits 0.01 seconds in case mirror is reflecting multiple lasers

@@ -88,7 +88,7 @@ position = Vector2( 135, -120 )
 position = Vector2( -184.577, 55.9196 )
 
 [node name="Lever4" parent="Levers" instance=ExtResource( 9 )]
-position = Vector2( -198.452, -89.9759 )
+position = Vector2( -199.452, -87.9759 )
 
 [node name="LaserSensors" type="Node2D" parent="."]
 
@@ -108,21 +108,22 @@ current = true
 zoom = Vector2( 0.4, 0.45 )
 
 [node name="UI" parent="." instance=ExtResource( 12 )]
+
 [connection signal="flip" from="Levers/Lever" to="Mirrors/Mirror" method="_on_Lever_flip_2"]
 [connection signal="flip" from="Levers/Lever2" to="Barriers/Barrier" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
 [connection signal="flip" from="Levers/Lever4" to="Lasers/Laser" method="_on_Lever_flip"]
+[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_disable" binds= [ false ]]
+[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_enable" binds= [ false ]]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier5" method="_on_LaserReceiver_disable" binds= [ false ]]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier6" method="_on_LaserReceiver_enable" binds= [ false ]]
-[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_enable" binds= [ false ]]
-[connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier3" method="_on_LaserReceiver_enable" binds= [ false ]]
+[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_disable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier5" method="_on_LaserReceiver_enable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier6" method="_on_LaserReceiver_disable" binds= [ false ]]
-[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_disable" binds= [ false ]]
-[connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
-[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_enable_2"]
 [connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier7" method="_on_LaserReceiver_enable"]
-[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_disable2"]
+[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_enable_2"]
 [connection signal="enable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier7" method="_on_LaserReceiver_disable"]
+[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_disable2"]
