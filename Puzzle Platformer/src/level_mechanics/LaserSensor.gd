@@ -4,6 +4,7 @@ extends Area2D
 signal enable
 
 export(String, "up", "down", "left", "right") var orientation = "up"
+export(Color) var color = Color.white
 export(bool) var ignore_sound_on_startup = false
 
 var powered = false
@@ -15,6 +16,7 @@ onready var anim_player = $AnimationPlayer
 onready var charge_sound = $ChargeSound
 
 func _ready():
+	sprite.modulate = color
 	anim_player.play("empty")
 	if orientation == "right":
 		sprite.rotation_degrees = 90

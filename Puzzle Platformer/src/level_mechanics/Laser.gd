@@ -4,6 +4,7 @@ const BEAM = preload("res://src/level_mechanics/Beam.tscn")
 
 export(bool) var enabled = false
 export(String, "up", "down", "left", "right") var orientation = "right"
+export(Color) var base_color = Color.white
 export(bool) var deadly = false
 
 onready var main_beam = $Beam
@@ -12,6 +13,7 @@ onready var enable_sound = $EnableSound
 
 
 func _ready():
+	sprite.modulate = base_color
 	if orientation == "right":
 		main_beam.cast_to = Vector2(1000, 0)
 		sprite.rotation_degrees = 90

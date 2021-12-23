@@ -3,6 +3,7 @@ extends Area2D
 
 export(String, "up", "down") var orientation = "up"
 export(bool) var enabled = true
+export(Color) var color = Color.white
 
 var update_orientation = false
 var speed = Vector2(1, 1)
@@ -16,6 +17,7 @@ onready var anim_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite.modulate = color
 	update_enabled()
 	update_sprite()
 	if enabled:

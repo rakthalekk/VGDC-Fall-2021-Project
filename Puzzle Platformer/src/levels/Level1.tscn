@@ -60,9 +60,11 @@ tile_data = PoolIntArray( -786447, 1, 8, -786446, 1, 10, -786445, 1, 10, -786444
 
 [node name="Barrier" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -65541, 1, 2, -5, 1, 65538, 65531, 1, 196610, 131067, 1, 196610, 196603, 1, 262146 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Barrier2" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -131070, 1, 2, -65534, 1, 196610, 2, 1, 65538, 65538, 1, 196610, 131074, 1, 262146 )
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="TutorialText" type="Node2D" parent="Barriers"]
 
@@ -101,25 +103,31 @@ enabled = true
 
 [node name="LaserSensor" parent="LaserSensors" instance=ExtResource( 9 )]
 position = Vector2( -88.1008, -55.9559 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="LaserSensor2" parent="LaserSensors" instance=ExtResource( 9 )]
 position = Vector2( 76.1718, -55.6812 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="LaserSensor3" parent="LaserSensors" instance=ExtResource( 9 )]
-position = Vector2( -134.099, -147.583 )
+position = Vector2( -136.099, -147.583 )
 orientation = "right"
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 0, -110.157 )
 orientation = "down"
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 
 [node name="Mirror2" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 73.5785, -108.476 )
+color = Color( 0.996078, 0.607843, 0.34902, 1 )
 
 [node name="Mirror3" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 71.8967, -144.214 )
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Mirror4" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( -89.7913, -109.317 )
@@ -128,9 +136,11 @@ position = Vector2( -89.7913, -109.317 )
 
 [node name="Lever" parent="Levers" instance=ExtResource( 8 )]
 position = Vector2( -120.248, -55.9196 )
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 
 [node name="Lever2" parent="Levers" instance=ExtResource( 8 )]
-position = Vector2( -119.38, 38.7541 )
+position = Vector2( -119.38, 40.7541 )
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Generator" parent="." instance=ExtResource( 7 )]
 position = Vector2( 92.4986, 9.24986 )

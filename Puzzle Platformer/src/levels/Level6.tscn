@@ -80,65 +80,77 @@ position = Vector2( 464, -64 )
 
 [node name="Barrier" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -262122, 0, 0, -262109, 0, 0 )
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Barrier2" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -327647, 1, 0, -327646, 1, 0, -262111, 1, 0, -262110, 1, 0, -196575, 1, 0, -196574, 1, 0, -131039, 1, 0, -131038, 1, 0, -65503, 1, 0, -65502, 1, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier3" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -589805, 1, 2, -524269, 1, 196610, -458733, 1, 65538, -393197, 1, 262146 )
+color = Color( 0.972549, 0.470588, 0.870588, 1 )
 
 [node name="Barrier4" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -917476, 1, 0, -393181, 1, 131072, -393180, 1, 131075, -393179, 1, 131075, -393178, 1, 131073, -393177, 1, 131073, -393176, 1, 131073, -393175, 1, 131076 )
+color = Color( 0.717647, 0.384314, 0.996078, 1 )
 
 [node name="Barrier5" parent="Barriers" instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -917483, 1, 0 )
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 
 [node name="Levers" type="Node2D" parent="."]
 
 [node name="Lever" parent="Levers" instance=ExtResource( 8 )]
-position = Vector2( 389.353, -9.00543 )
+position = Vector2( 389.353, -8.00543 )
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Lever2" parent="Levers" instance=ExtResource( 8 )]
 position = Vector2( 444.974, -7.94598 )
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Lever3" parent="Levers" instance=ExtResource( 8 )]
 position = Vector2( 391.472, -88.4651 )
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 
 [node name="Lever4" parent="Levers" instance=ExtResource( 8 )]
-position = Vector2( 268.014, -88.5246 )
+position = Vector2( 265.014, -88.5246 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Lever5" parent="Levers" instance=ExtResource( 8 )]
 position = Vector2( 572.11, -7.94595 )
+color = Color( 0.972549, 0.470588, 0.870588, 1 )
 
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 649, -54 )
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Mirror2" parent="Mirrors" instance=ExtResource( 6 )]
 position = Vector2( 607.245, -53.5029 )
 orientation = "down"
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Lasers" type="Node2D" parent="."]
 
 [node name="Laser" parent="Lasers" instance=ExtResource( 5 )]
-position = Vector2( 260.098, -56.6813 )
+position = Vector2( 263.098, -56.6813 )
 enabled = true
 deadly = true
 
 [node name="Laser2" parent="Lasers" instance=ExtResource( 5 )]
-position = Vector2( 645.743, -238.087 )
+position = Vector2( 645.743, -235.087 )
 enabled = true
 orientation = "down"
 
 [node name="Laser3" parent="Lasers" instance=ExtResource( 5 )]
-position = Vector2( 340.088, -238.028 )
+position = Vector2( 344.088, -235.028 )
 enabled = true
 orientation = "down"
 deadly = true
 
 [node name="Laser4" parent="Lasers" instance=ExtResource( 5 )]
-position = Vector2( 453.45, -239.439 )
+position = Vector2( 456.45, -235.439 )
 enabled = true
 orientation = "down"
 deadly = true
@@ -146,8 +158,9 @@ deadly = true
 [node name="LaserSensors" type="Node2D" parent="."]
 
 [node name="LaserReceiver" parent="LaserSensors" instance=ExtResource( 10 )]
-position = Vector2( 666.932, -57.7407 )
+position = Vector2( 664.932, -57.7407 )
 orientation = "left"
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 275.483, -20.719 )
@@ -168,7 +181,6 @@ position = Vector2( 464, -64 )
 [connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier4" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever3" to="Barriers/Barrier5" method="_on_Lever_flip" binds= [ false ]]
 [connection signal="flip" from="Levers/Lever4" to="Mirrors/Mirror2" method="_on_Lever_flip_2"]
-[connection signal="flip" from="Levers/Lever5" to="Barriers/Barrier" method="_on_Lever_flip"]
 [connection signal="flip" from="Levers/Lever5" to="Barriers/Barrier3" method="_on_Lever_flip" binds= [ false ]]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier2" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_enable" binds= [ false ]]

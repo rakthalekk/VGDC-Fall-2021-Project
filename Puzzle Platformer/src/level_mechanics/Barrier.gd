@@ -1,6 +1,7 @@
 # TileMap for barrier
 extends TileMap
 
+export(Color) var color = Color.white
 export(bool) var ignore_sound_on_startup = false
 
 # bool value to indicate if the barrier is enabled or disabled
@@ -11,6 +12,7 @@ onready var flip_sound = $FlipSound
 
 
 func _ready():
+	modulate = color
 	for tile in get_used_cells():
 		if get_cellv(tile) == 0:
 			enabled = false

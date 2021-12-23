@@ -29,24 +29,27 @@ tile_data = PoolIntArray( -786447, 0, 8, -786446, 0, 10, -786445, 0, 10, -786444
 
 [node name="Barrier" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( -65527, 0, 2, 9, 0, 262146 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Barrier2" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( 196603, 0, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier3" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( -65535, 1, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier4" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( -196610, 0, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier5" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( -458750, 1, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier6" parent="Barriers" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( -458747, 0, 0 )
-
-[node name="Barrier7" parent="Barriers" instance=ExtResource( 10 )]
-tile_data = PoolIntArray( -589834, 0, 0 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1.68372, 41.5311 )
@@ -56,6 +59,7 @@ position = Vector2( 1.68372, 41.5311 )
 [node name="Laser" parent="Lasers" instance=ExtResource( 1 )]
 position = Vector2( 184.645, -119.542 )
 orientation = "up"
+base_color = Color( 0.972549, 0.470588, 0.870588, 1 )
 
 [node name="Laser2" parent="Lasers" instance=ExtResource( 1 )]
 position = Vector2( -200, -55.5 )
@@ -71,33 +75,41 @@ position = Vector2( -70.5, -56 )
 position = Vector2( -71, 2.5 )
 orientation = "down"
 enabled = false
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Mirror2" parent="Mirrors" instance=ExtResource( 8 )]
 position = Vector2( -152.202, -53.8174 )
 enabled = false
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Levers" type="Node2D" parent="."]
 
 [node name="Lever" parent="Levers" instance=ExtResource( 9 )]
-position = Vector2( 199.5, -41 )
+position = Vector2( 200.5, -40 )
+color = Color( 0.768627, 0.87451, 0.333333, 1 )
 
 [node name="Lever2" parent="Levers" instance=ExtResource( 9 )]
-position = Vector2( 135, -120 )
+position = Vector2( 136, -120 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Lever3" parent="Levers" instance=ExtResource( 9 )]
 position = Vector2( -184.577, 55.9196 )
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Lever4" parent="Levers" instance=ExtResource( 9 )]
 position = Vector2( -199.452, -87.9759 )
+color = Color( 0.972549, 0.470588, 0.870588, 1 )
 
 [node name="LaserSensors" type="Node2D" parent="."]
 
 [node name="LaserReceiver" parent="LaserSensors" instance=ExtResource( 11 )]
 position = Vector2( -72, 56.5 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="LaserReceiver2" parent="LaserSensors" instance=ExtResource( 11 )]
 position = Vector2( -151.782, -169.441 )
 orientation = "down"
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Generator" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184.084, -157.706 )
@@ -123,7 +135,5 @@ zoom = Vector2( 0.4, 0.45 )
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier4" method="_on_LaserReceiver_disable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier5" method="_on_LaserReceiver_enable" binds= [ false ]]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier6" method="_on_LaserReceiver_disable" binds= [ false ]]
-[connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier7" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_enable_2"]
-[connection signal="enable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier7" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver2" to="Mirrors/Mirror2" method="_on_LaserReceiver_disable2"]

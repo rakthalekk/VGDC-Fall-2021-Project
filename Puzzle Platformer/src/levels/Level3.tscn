@@ -33,16 +33,20 @@ tile_data = PoolIntArray( -786447, 0, 8, -786446, 0, 10, -786445, 0, 10, -786444
 
 [node name="Barrier" parent="Barriers" instance=ExtResource( 8 )]
 tile_data = PoolIntArray( -131082, 1, 131072, -131081, 1, 131075, -131080, 1, 131073, -131079, 1, 131075, -131078, 1, 131075, -131077, 1, 131075, -131076, 1, 131073, -131075, 1, 131073, -131074, 1, 131073, -131073, 1, 131076 )
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="Barrier2" parent="Barriers" instance=ExtResource( 8 )]
 tile_data = PoolIntArray( -65535, 1, 2, 1, 1, 196610, 65537, 1, 196610, 131073, 1, 196610, 196609, 1, 262146 )
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 ignore_sound_on_startup = true
 
 [node name="Barrier3" parent="Barriers" instance=ExtResource( 8 )]
 tile_data = PoolIntArray( -196605, 1, 131072, -196604, 1, 131075, -196603, 1, 131073, -196602, 1, 131073, -196601, 1, 131073, -196600, 1, 131075, -196599, 1, 131076 )
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Barrier4" parent="Barriers" instance=ExtResource( 8 )]
 tile_data = PoolIntArray( -458746, 1, 0 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -180.716, -70.7151 )
@@ -77,19 +81,23 @@ orientation = "down"
 [node name="LaserReceiver" parent="LaserSensors" instance=ExtResource( 7 )]
 position = Vector2( 8.41849, -55.0006 )
 orientation = "left"
+color = Color( 0.396078, 0.972549, 0.470588, 1 )
 
 [node name="LaserReceiver2" parent="LaserSensors" instance=ExtResource( 7 )]
 position = Vector2( 24, -72 )
+color = Color( 0.227451, 0.584314, 0.960784, 1 )
 ignore_sound_on_startup = true
 
 [node name="LaserReceiver3" parent="LaserSensors" instance=ExtResource( 7 )]
 position = Vector2( 200, -55 )
 orientation = "left"
+color = Color( 0.996078, 0.454902, 0.384314, 1 )
 
 [node name="Levers" type="Node2D" parent="."]
 
 [node name="Lever" parent="Levers" instance=ExtResource( 6 )]
-position = Vector2( 171.5, -56.5 )
+position = Vector2( 168.5, -55.5 )
+color = Color( 0.286275, 0.992157, 0.941176, 1 )
 
 [node name="Mirrors" type="Node2D" parent="."]
 
@@ -119,6 +127,7 @@ hframes = 2
 frame = 1
 
 [node name="UI" parent="." instance=ExtResource( 13 )]
+
 [connection signal="disable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_disable"]
 [connection signal="enable" from="LaserSensors/LaserReceiver" to="Barriers/Barrier" method="_on_LaserReceiver_enable"]
 [connection signal="disable" from="LaserSensors/LaserReceiver2" to="Barriers/Barrier2" method="_on_LaserReceiver_disable"]
